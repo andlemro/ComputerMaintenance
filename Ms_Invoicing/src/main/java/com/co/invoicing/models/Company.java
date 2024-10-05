@@ -22,6 +22,9 @@ public class Company {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer idCompany;
 
+	@Column(name = "nit", nullable = false, unique = true)
+	private Long nit;
+
 	@Column(name = "company_name", nullable = false, length = 40)
 	private String companyName;
 

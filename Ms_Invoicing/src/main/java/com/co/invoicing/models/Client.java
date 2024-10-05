@@ -25,10 +25,10 @@ public class Client {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer idClient;
 
-	@Column(name = "name", nullable = false, length = 40)
+	@Column(name = "client_name", nullable = false, length = 40)
 	private String name;
 
-	@Column(name = "last_name", nullable = false, length = 40)
+	@Column(name = "client_last_name", nullable = false, length = 40)
 	private String lastName;
 
 	@Column(name = "phone_number", nullable = false, length = 12)

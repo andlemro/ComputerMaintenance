@@ -27,11 +27,11 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer idUser;
 
-	@Column(name = "username", nullable = false, length = 30)
+	@Column(name = "username", nullable = false, length = 20)
 	private String username;
 
-	@Column(name = "password", nullable = false, length = 20)
-	private String password;
+	@Column(name = "pass", nullable = false, length = 20)
+	private String pass;
 
 	@ManyToMany
 	@JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "id_user"), inverseJoinColumns = @JoinColumn(name = "id_rol"))

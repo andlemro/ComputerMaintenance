@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "trade_mark")
+@Table(name = "trade_marks")
 public class TradeMark {
 
 	@Id
@@ -22,7 +22,7 @@ public class TradeMark {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer idTradeMark;
 
-	@Column(name = "mark_name", nullable = false, length = 50)
+	@Column(name = "mark_name", nullable = false, length = 30)
 	private String markName;
 
 }

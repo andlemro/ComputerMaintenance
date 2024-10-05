@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "Invoice")
+@Table(name = "invoices")
 public class Invoice {
 
 	@Id
@@ -33,13 +33,13 @@ public class Invoice {
 	@Column(name = "date_registered", nullable = false, length = 40)
 	private LocalDateTime dateRegistered;
 
-	@Column(name = "subtotalCost", precision = 15, scale = 2, nullable = false)
+	@Column(name = "subtotal_cost", precision = 15, scale = 2, nullable = false)
 	private BigDecimal subtotalCost;
 
 	@Column(name = "iva_cost", precision = 15, scale = 2, nullable = false)
 	private BigDecimal ivaCost;
 
-	@Column(name = "totalCost", precision = 15, scale = 2, nullable = false)
+	@Column(name = "total_cost", precision = 15, scale = 2, nullable = false)
 	private BigDecimal totalCost;
 
 	@ManyToOne(optional = false)

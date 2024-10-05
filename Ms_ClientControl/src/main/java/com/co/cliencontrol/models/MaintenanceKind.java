@@ -22,7 +22,7 @@ public class MaintenanceKind {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer idMaintenanceKind;
 
-	@Column(name = "kind", nullable = false, length = 50)
+	@Column(name = "kind", nullable = false, length = 30)
 	private String kind;
 
 }

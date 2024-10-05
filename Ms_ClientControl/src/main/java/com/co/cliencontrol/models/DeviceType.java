@@ -14,15 +14,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "type_device")
-public class TypeDevice {
+@Table(name = "devices_types")
+public class DeviceType {
 
 	@Id
-	@Column(name = "id_type_device", unique = true)
+	@Column(name = "id_device_type", unique = true)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Integer idTypeDevice;
+	private Integer idDeviceType;
 
-	@Column(name = "name", nullable = false, length = 30)
-	private String name;
+	@Column(name = "device_type_name", nullable = false, length = 30)
+	private String deviceTypeName;
 
 }

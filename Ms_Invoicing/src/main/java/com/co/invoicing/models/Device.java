@@ -1,6 +1,6 @@
 package com.co.invoicing.models;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -27,12 +27,12 @@ public class Device {
 	private Integer idDevice;
 
 	@Column(name = "maintenance_date", nullable = false)
-	private Date maintenanceDate;
+	private LocalDateTime maintenanceDate;
 
 	@Column(name = "description", nullable = false, length = 200)
 	private String description;
 
-	@Column(name = "model", nullable = false, length = 200)
+	@Column(name = "model", nullable = false, length = 30)
 	private String model;
 
 	@ManyToOne(optional = false)
@@ -49,6 +49,6 @@ public class Device {
 
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "id_device_type", referencedColumnName = "id_device_type", nullable = false)
-	private TypeDevice idTypeDevice;
+	private DeviceType idDeviceType;
 
 }
