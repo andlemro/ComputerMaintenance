@@ -10,6 +10,13 @@ Este proyecto está enfocado en la gestión integral de clientes que requieren s
 
 **Server:** Apache Tomcat.
 
+**Database** PostgreSQL
+
+## Documentation
+
+[Documentation](https://github.com/andlemro/ComputerMaintenance/tree/feature/Documentation)
+
+
 ## Authors
 
 - [@andlemro](https://github.com/andlemro)

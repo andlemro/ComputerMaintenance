@@ -9,6 +9,13 @@ Este microservicio se encarga de gestionar la facturacion del proyecto de manten
 
 **Server:** Apache Tomcat.
 
+**Database** PostgreSQL
+
+## Documentation
+
+[Documentation](https://github.com/andlemro/ComputerMaintenance/tree/feature/Documentation)
+
+
 ## Authors
 
 - [@andlemro](https://github.com/andlemro)

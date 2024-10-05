@@ -9,6 +9,13 @@ Esta microservicio se centra en la administración de los datos de clientes del 
 
 **Server:** Apache Tomcat.
 
+**Database** PostgreSQL
+
+## Documentation
+
+[Documentation](https://github.com/andlemro/ComputerMaintenance/tree/feature/Documentation)
+
+
 ## Authors
 
 - [@andlemro](https://github.com/andlemro)
