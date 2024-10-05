@@ -1,4 +1,4 @@
-package com.co.cliencontrol.models;
+package com.co.users.models;
 
 import java.util.Set;
 
@@ -34,8 +34,7 @@ public class User {
 	private String password;
 
 	@ManyToMany
-	@JoinTable(name = "users_roles", 
-	joinColumns = @JoinColumn(name = "id_user"), 
-	inverseJoinColumns = @JoinColumn(name = "id_rol"))
+	@JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "id_user"), inverseJoinColumns = @JoinColumn(name = "id_rol"))
 	private Set<Rol> roles;
+
 }

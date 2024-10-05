@@ -1,4 +1,4 @@
-package com.co.cliencontrol.models;
+package com.co.users.models;
 
 import java.util.Set;
 
@@ -31,11 +31,10 @@ public class Rol {
 	private String rolName;
 
 	@ManyToMany
-	@JoinTable(name = "roles_permissions", 
-	joinColumns = @JoinColumn(name = "id_rol"), 
-	inverseJoinColumns = @JoinColumn(name = "id_permission"))
+	@JoinTable(name = "roles_permissions", joinColumns = @JoinColumn(name = "id_rol"), inverseJoinColumns = @JoinColumn(name = "id_permission"))
 	private Set<Permission> permissions;
 
 	@ManyToMany(mappedBy = "roles")
 	private Set<User> users;
+
 }
