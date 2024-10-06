@@ -1,4 +1,4 @@
-package com.co.cliencontrol.models;
+package com.co.cliencontrol.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,15 +14,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "trade_marks")
-public class TradeMark {
+@Table(name = "maintenance_kind")
+public class MaintenanceKind {
 
 	@Id
-	@Column(name = "id_trade_mark", unique = true)
+	@Column(name = "id_maintenance_kind", unique = true)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Integer idTradeMark;
+	private Integer idMaintenanceKind;
 
-	@Column(name = "mark_name", nullable = false, length = 30)
-	private String markName;
+	@Column(name = "kind", nullable = false, length = 30)
+	private String kind;
 
 }

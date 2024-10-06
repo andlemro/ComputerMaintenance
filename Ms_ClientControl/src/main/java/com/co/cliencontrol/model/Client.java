@@ -1,4 +1,4 @@
-package com.co.cliencontrol.models;
+package com.co.cliencontrol.model;
 
 import java.util.List;
 import java.util.Set;

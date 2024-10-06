@@ -1,4 +1,4 @@
-package com.co.cliencontrol.models;
+package com.co.cliencontrol.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
