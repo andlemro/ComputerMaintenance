@@ -50,6 +50,7 @@ create table devices (
 
 create table invoices (
 	id_invoice Serial PRIMARY KEY UNIQUE,
+	invoice_number NUmeric NOT NULL,
 	service_description VARCHAR(40) NOT NULL, 
 	date_registered TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	subtotal_cost DECIMAL(15,2) NOT NULL,
