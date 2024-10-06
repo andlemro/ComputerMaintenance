@@ -26,6 +26,9 @@ public class Invoice {
 	@Column(name = "id_invoice", unique = true)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer idInvoice;
+	
+	@Column(name = "invoice_number", nullable = false)
+	private Long invoiceNumber;
 
 	@Column(name = "service_description", nullable = false, length = 40)
 	private String serviceDescription;
