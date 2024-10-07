@@ -2,17 +2,19 @@ package com.co.cliencontrol.interfaces;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
+
 import com.co.cliencontrol.model.Company;
 
 public interface ICompanyService {
 
-	public List<Company> listCompanies();
+	public ResponseEntity<List<Company>> listCompanies();
 
-	public Company getCompanyById(Integer idCompany);
+	public ResponseEntity<Company> getCompanyById(Integer idCompany);
 
-	public void saveCompany(Company company);
+	public ResponseEntity<Company> createCompany(Company company);
 
-	public void deleteCompanyById(Integer idCompany);
+	public ResponseEntity<Void> deleteCompanyById(Integer idCompany);
 
-	public Company updateCompay(Company company);
+	public ResponseEntity<Company> updateCompay(Company company);
 }

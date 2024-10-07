@@ -2,18 +2,20 @@ package com.co.cliencontrol.interfaces;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
+
 import com.co.cliencontrol.model.TradeMark;
 
 public interface ITradeMarkService {
 
-	public List<TradeMark> listTradeMarks();
+	public ResponseEntity<List<TradeMark>> listTradeMarks();
 
-	public TradeMark getTradeMarkById(Integer idTradeMark);
+	public ResponseEntity<TradeMark> getTradeMarkById(Integer idTradeMark);
 
-	public void saveTradeMark(TradeMark tradeMark);
+	public ResponseEntity<TradeMark> createTradeMark(TradeMark tradeMark);
 
-	public void delteTradeMark(Integer idTradeMark);
+	public ResponseEntity<Void> deleteTradeMark(Integer idTradeMark);
 
-	public TradeMark updateTradeMark(TradeMark tradeMark);
+	public ResponseEntity<TradeMark> updateTradeMark(TradeMark tradeMark);
 
 }

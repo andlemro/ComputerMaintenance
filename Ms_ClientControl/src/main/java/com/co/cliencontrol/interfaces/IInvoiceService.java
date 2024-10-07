@@ -2,17 +2,19 @@ package com.co.cliencontrol.interfaces;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
+
 import com.co.cliencontrol.model.Invoice;
 
 public interface IInvoiceService {
 
-	public List<Invoice> listInvoices();
+	public ResponseEntity<List<Invoice>> listInvoices();
 
-	public Invoice getInvoiceByInvoiceNumber(Long idInvoice);
+	public ResponseEntity<Invoice> getInvoiceByInvoiceNumber(Long idInvoice);
 
-	public void saveInvoice(Invoice invoice);
+	public ResponseEntity<Invoice> createInvoice(Invoice invoice);
 
-	public void deleteInvoiceByInvoiceNumber(Long invoiceNumber);
+	public ResponseEntity<Void> deleteInvoiceByInvoiceNumber(Long invoiceNumber);
 
-	public Invoice updateInvoice(Invoice invoice);
+	public ResponseEntity<Invoice> updateInvoice(Invoice invoice);
 }

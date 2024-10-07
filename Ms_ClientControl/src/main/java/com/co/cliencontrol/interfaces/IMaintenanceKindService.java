@@ -2,18 +2,20 @@ package com.co.cliencontrol.interfaces;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
+
 import com.co.cliencontrol.model.MaintenanceKind;
 
 public interface IMaintenanceKindService {
 
-	public List<MaintenanceKind> listMaintenanceKinds();
+	public ResponseEntity<List<MaintenanceKind>> listMaintenanceKinds();
 
-	public MaintenanceKind getMaintenanceKindById(Integer idMaintenanceKind);
+	public ResponseEntity<MaintenanceKind> getMaintenanceKindById(Integer idMaintenanceKind);
 
-	public void saveMaintenanceKind(MaintenanceKind maintenanceKind);
+	public ResponseEntity<MaintenanceKind> createMaintenanceKind(MaintenanceKind maintenanceKind);
 
-	public void deleteMaintenanceKindById(Integer IdMaintenanceKind);
+	public ResponseEntity<Void> deleteMaintenanceKindById(Integer IdMaintenanceKind);
 
-	public MaintenanceKind updateMaintenanceKind(MaintenanceKind maintenanceKind);
+	public ResponseEntity<MaintenanceKind> updateMaintenanceKind(MaintenanceKind maintenanceKind);
 
 }

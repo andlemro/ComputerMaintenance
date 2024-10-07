@@ -2,17 +2,19 @@ package com.co.cliencontrol.interfaces;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
+
 import com.co.cliencontrol.model.DeviceType;
 
 public interface IDeviceTypeService {
 
-	public List<DeviceType> listDevicesTypes();
+	public ResponseEntity<List<DeviceType>> listDevicesTypes();
 
-	public DeviceType getDeviceTypeById(Integer idDevice);
+	public ResponseEntity<DeviceType> getDeviceTypeById(Integer idDevice);
 
-	public void saveDeviceType(DeviceType deviceType);
+	public ResponseEntity<DeviceType> createDeviceType(DeviceType deviceType);
 
-	public void deleteDeviceTypeById(Integer IdDeviceType);
+	public ResponseEntity<Void> deleteDeviceTypeById(Integer IdDeviceType);
 
-	public DeviceType uptadeDeviceType(DeviceType deviceType);
+	public ResponseEntity<DeviceType> uptadeDeviceType(DeviceType deviceType);
 }
