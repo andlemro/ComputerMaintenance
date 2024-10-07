@@ -38,14 +38,14 @@ create table devices (
 	maintenance_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
 	description VARCHAR(200) NOT NULL,
 	model VARCHAR(30) NOT NULL,
-	fk_id_client INTEGER NOT NULL,
-	fk_id_trade_mark INTEGER NOT NULL,
-	fk_id_maintenance_kind INTEGER NOT NULL,
-	fk_id_device_type INTEGER NOT NULL,
-	CONSTRAINT fk_id_client FOREIGN KEY (fk_id_client) REFERENCES clients (id_client) ON DELETE CASCADE,						 
-	CONSTRAINT fk_id_trade_mark FOREIGN KEY (fk_id_trade_mark) REFERENCES trade_marks (id_trade_mark) ON DELETE CASCADE,
-	CONSTRAINT fk_id_maintenance_kind FOREIGN KEY (fk_id_maintenance_kind) REFERENCES maintenance_kind (id_maintenance_kind) ON DELETE CASCADE,
-	CONSTRAINT fk_id_device_type FOREIGN KEY (fk_id_device_type) REFERENCES devices_types (id_device_type) ON DELETE CASCADE
+	id_client INTEGER NOT NULL,
+	id_trade_mark INTEGER NOT NULL,
+	id_maintenance_kind INTEGER NOT NULL,
+	id_device_type INTEGER NOT NULL,
+	CONSTRAINT id_client FOREIGN KEY (id_client) REFERENCES clients (id_client) ON DELETE CASCADE,						 
+	CONSTRAINT id_trade_mark FOREIGN KEY (id_trade_mark) REFERENCES trade_marks (id_trade_mark) ON DELETE CASCADE,
+	CONSTRAINT id_maintenance_kind FOREIGN KEY (id_maintenance_kind) REFERENCES maintenance_kind (id_maintenance_kind) ON DELETE CASCADE,
+	CONSTRAINT id_device_type FOREIGN KEY (id_device_type) REFERENCES devices_types (id_device_type) ON DELETE CASCADE
 );
 
 create table invoices (
@@ -56,10 +56,10 @@ create table invoices (
 	subtotal_cost DECIMAL(15,2) NOT NULL,
 	iva_cost DECIMAL(15,2) NOT NULL,
 	total_cost DECIMAL(15,2) NOT NULL,
-	fk_id_client INTEGER NOT NULL,
-	fk_id_company INTEGER NOT NULL,
-	CONSTRAINT fk_id_client FOREIGN KEY (fk_id_client) REFERENCES clients (id_client) ON DELETE CASCADE,						 
-	CONSTRAINT fk_id_company FOREIGN KEY (fk_id_company) REFERENCES company (id_company) ON DELETE CASCADE
+	id_client INTEGER NOT NULL,
+	id_company INTEGER NOT NULL,
+	CONSTRAINT id_client FOREIGN KEY (id_client) REFERENCES clients (id_client) ON DELETE CASCADE,						 
+	CONSTRAINT id_company FOREIGN KEY (id_company) REFERENCES company (id_company) ON DELETE CASCADE
 );
 
 create table users (
