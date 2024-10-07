@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,7 +20,8 @@ public class Company {
 
 	@Id
 	@Column(name = "id_company", unique = true)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "company_generator")
+	@SequenceGenerator(name = "company_generator", sequenceName = "company_seq", allocationSize = 1)
 	private Integer idCompany;
 	
 	@Column(name = "nit", nullable = false, unique = true)

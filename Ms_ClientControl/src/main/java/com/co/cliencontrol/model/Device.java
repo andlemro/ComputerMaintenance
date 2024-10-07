@@ -9,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,10 +24,11 @@ public class Device {
 
 	@Id
 	@Column(name = "id_device", unique = true)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "device_generator")
+	@SequenceGenerator(name = "device_generator", sequenceName = "devices_seq", allocationSize = 1)
 	private Integer idDevice;
 
-	@Column(name = "maintenance_date", nullable = false)
+	@Column(name = "maintenance_date")
 	private LocalDateTime maintenanceDate;
 
 	@Column(name = "description", nullable = false, length = 200)
