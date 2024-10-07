@@ -14,51 +14,52 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.co.cliencontrol.interfaces.IClientService;
-import com.co.cliencontrol.model.Client;
+import com.co.cliencontrol.interfaces.IDeviceTypeService;
+import com.co.cliencontrol.model.DeviceType;
 
 import jakarta.websocket.server.PathParam;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/clients")
-public class ClientController {
+@RequestMapping("/deviceType")
+public class DeviceTypeController {
 
 	@Autowired
-	IClientService clientService;
+	IDeviceTypeService deviceTypeService;
 
 	/**************************************************/
 
 	@GetMapping()
-	public ResponseEntity<List<Client>> listClients() {
-		return this.clientService.listClients();
+	public ResponseEntity<List<DeviceType>> listDeviceTypes() {
+		return this.deviceTypeService.listDevicesTypes();
 	}
 
 	/**************************************************/
 
-	@GetMapping(value = "/{idClient}")
-	public ResponseEntity<Client> getClientById(@PathVariable("idClient") Integer idClient) {
-		return this.clientService.getClientById(idClient);
+	@GetMapping(value = "/{idDeviceType}")
+	public ResponseEntity<DeviceType> getDeviceTypeById(@PathVariable("idDeviceType") Integer IdDeviceType) {
+		return this.deviceTypeService.getDeviceTypeById(IdDeviceType);
 	}
 
 	/**************************************************/
 
 	@PostMapping(value = "/create")
-	public ResponseEntity<Client> createClient(@RequestBody Client client) {
-		return this.clientService.createClient(client);
+	public ResponseEntity<DeviceType> createDeviceType(@RequestBody DeviceType deviceType) {
+		return this.deviceTypeService.createDeviceType(deviceType);
 	}
-	
+
 	/**************************************************/
 
 	@DeleteMapping(value = "/delete")
-	public ResponseEntity<Void> deleteClient(@PathParam("idClient") Integer idClient) {
-		return this.clientService.deleteClientById(idClient);
+	public ResponseEntity<Void> deleteDeviceType(@PathParam("idDeviceType") Integer idDeviceType) {
+		return this.deviceTypeService.deleteDeviceTypeById(idDeviceType);
 	}
-	
+
 	/**************************************************/
-	
+
 	@PutMapping(value = "/update")
-	public ResponseEntity<Client> updateClient(@RequestBody Client client) {
-		return this.clientService.updateClient(client);
+	public ResponseEntity<DeviceType> updateDeviceType(@RequestBody DeviceType deviceType) {
+		return this.deviceTypeService.uptadeDeviceType(deviceType);
 	}
+
 }

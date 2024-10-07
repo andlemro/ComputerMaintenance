@@ -14,51 +14,51 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.co.cliencontrol.interfaces.IClientService;
-import com.co.cliencontrol.model.Client;
+import com.co.cliencontrol.interfaces.IInvoiceService;
+import com.co.cliencontrol.model.Invoice;
 
 import jakarta.websocket.server.PathParam;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/clients")
-public class ClientController {
+@RequestMapping("/invoices")
+public class InvoiceController {
 
 	@Autowired
-	IClientService clientService;
+	IInvoiceService invoiceService;
 
 	/**************************************************/
 
 	@GetMapping()
-	public ResponseEntity<List<Client>> listClients() {
-		return this.clientService.listClients();
+	public ResponseEntity<List<Invoice>> listInvoices() {
+		return this.invoiceService.listInvoices();
 	}
 
 	/**************************************************/
 
-	@GetMapping(value = "/{idClient}")
-	public ResponseEntity<Client> getClientById(@PathVariable("idClient") Integer idClient) {
-		return this.clientService.getClientById(idClient);
+	@GetMapping(value = "/{invoiceNumber}")
+	public ResponseEntity<Invoice> getInvoiceByInvoiceNumber(@PathVariable("invoiceNumber") Long invoiceNumber) {
+		return this.invoiceService.getInvoiceByInvoiceNumber(invoiceNumber);
 	}
 
 	/**************************************************/
 
 	@PostMapping(value = "/create")
-	public ResponseEntity<Client> createClient(@RequestBody Client client) {
-		return this.clientService.createClient(client);
+	public ResponseEntity<Invoice> createInvoice(@RequestBody Invoice invoice) {
+		return this.invoiceService.createInvoice(invoice);
 	}
-	
+
 	/**************************************************/
 
 	@DeleteMapping(value = "/delete")
-	public ResponseEntity<Void> deleteClient(@PathParam("idClient") Integer idClient) {
-		return this.clientService.deleteClientById(idClient);
+	public ResponseEntity<Void> deleteInvoice(@PathParam("invoiceNumber") Long invoiceNumber) {
+		return this.invoiceService.deleteInvoiceByInvoiceNumber(invoiceNumber);
 	}
-	
+
 	/**************************************************/
-	
+
 	@PutMapping(value = "/update")
-	public ResponseEntity<Client> updateClient(@RequestBody Client client) {
-		return this.clientService.updateClient(client);
+	public ResponseEntity<Invoice> updateInvoice(@RequestBody Invoice invoice) {
+		return this.invoiceService.updateInvoice(invoice);
 	}
 }

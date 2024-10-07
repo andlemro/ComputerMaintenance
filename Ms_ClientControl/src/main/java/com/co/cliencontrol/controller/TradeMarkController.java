@@ -14,51 +14,51 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.co.cliencontrol.interfaces.IClientService;
-import com.co.cliencontrol.model.Client;
+import com.co.cliencontrol.interfaces.ITradeMarkService;
+import com.co.cliencontrol.model.TradeMark;
 
 import jakarta.websocket.server.PathParam;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/clients")
-public class ClientController {
+@RequestMapping("/tradeMark")
+public class TradeMarkController {
 
 	@Autowired
-	IClientService clientService;
+	ITradeMarkService tradeMarkService;
 
 	/**************************************************/
 
 	@GetMapping()
-	public ResponseEntity<List<Client>> listClients() {
-		return this.clientService.listClients();
+	public ResponseEntity<List<TradeMark>> listTradeMarks() {
+		return this.tradeMarkService.listTradeMarks();
 	}
 
 	/**************************************************/
 
-	@GetMapping(value = "/{idClient}")
-	public ResponseEntity<Client> getClientById(@PathVariable("idClient") Integer idClient) {
-		return this.clientService.getClientById(idClient);
+	@GetMapping(value = "/{idTradeMark}")
+	public ResponseEntity<TradeMark> getTradeMarkById(@PathVariable Integer idTradeMark) {
+		return this.tradeMarkService.getTradeMarkById(idTradeMark);
 	}
 
 	/**************************************************/
 
 	@PostMapping(value = "/create")
-	public ResponseEntity<Client> createClient(@RequestBody Client client) {
-		return this.clientService.createClient(client);
+	public ResponseEntity<TradeMark> createTradeMark(@RequestBody TradeMark tradeMark) {
+		return this.tradeMarkService.createTradeMark(tradeMark);
 	}
-	
+
 	/**************************************************/
 
 	@DeleteMapping(value = "/delete")
-	public ResponseEntity<Void> deleteClient(@PathParam("idClient") Integer idClient) {
-		return this.clientService.deleteClientById(idClient);
+	public ResponseEntity<Void> deleteTradeMark(@PathParam("idTradeMark") Integer idTradeMark) {
+		return this.tradeMarkService.deleteTradeMark(idTradeMark);
 	}
-	
+
 	/**************************************************/
-	
+
 	@PutMapping(value = "/update")
-	public ResponseEntity<Client> updateClient(@RequestBody Client client) {
-		return this.clientService.updateClient(client);
+	public ResponseEntity<TradeMark> updateTradeMark(@RequestBody TradeMark tradeMark) {
+		return this.tradeMarkService.updateTradeMark(tradeMark);
 	}
 }

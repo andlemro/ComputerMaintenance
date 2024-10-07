@@ -14,51 +14,51 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.co.cliencontrol.interfaces.IClientService;
-import com.co.cliencontrol.model.Client;
+import com.co.cliencontrol.interfaces.ICompanyService;
+import com.co.cliencontrol.model.Company;
 
 import jakarta.websocket.server.PathParam;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/clients")
-public class ClientController {
-
+@RequestMapping("/company")
+public class CompanyController {
+	
 	@Autowired
-	IClientService clientService;
-
+	ICompanyService companyService;
+	
 	/**************************************************/
-
+	
 	@GetMapping()
-	public ResponseEntity<List<Client>> listClients() {
-		return this.clientService.listClients();
-	}
-
-	/**************************************************/
-
-	@GetMapping(value = "/{idClient}")
-	public ResponseEntity<Client> getClientById(@PathVariable("idClient") Integer idClient) {
-		return this.clientService.getClientById(idClient);
-	}
-
-	/**************************************************/
-
-	@PostMapping(value = "/create")
-	public ResponseEntity<Client> createClient(@RequestBody Client client) {
-		return this.clientService.createClient(client);
+	public ResponseEntity<List<Company>> listCompanies() {
+		return this.companyService.listCompanies();
 	}
 	
 	/**************************************************/
-
+	
+	@GetMapping(value = "/{idCompany}")
+	public ResponseEntity<Company>  getCompanyById(@PathVariable("idCompany") Integer idCompany) {
+		return this.companyService.getCompanyById(idCompany);
+	}
+	
+	/**************************************************/
+	
+	@PostMapping(value = "/create")
+	public ResponseEntity<Company> createCompany(@RequestBody Company company) {
+		return this.companyService.createCompany(company);
+	}
+	
+	/**************************************************/
+	
 	@DeleteMapping(value = "/delete")
-	public ResponseEntity<Void> deleteClient(@PathParam("idClient") Integer idClient) {
-		return this.clientService.deleteClientById(idClient);
+	public ResponseEntity<Void> deleteCompany(@PathParam("idCompany") Integer idCompany) {
+		return this.companyService.deleteCompanyById(idCompany);
 	}
 	
 	/**************************************************/
 	
 	@PutMapping(value = "/update")
-	public ResponseEntity<Client> updateClient(@RequestBody Client client) {
-		return this.clientService.updateClient(client);
+	public ResponseEntity<Company> updateCompany(@RequestBody Company company) {
+		return this.companyService.updateCompay(company);
 	}
 }

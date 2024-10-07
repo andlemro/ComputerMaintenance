@@ -14,51 +14,53 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.co.cliencontrol.interfaces.IClientService;
-import com.co.cliencontrol.model.Client;
+import com.co.cliencontrol.interfaces.IMaintenanceKindService;
+import com.co.cliencontrol.model.MaintenanceKind;
 
 import jakarta.websocket.server.PathParam;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/clients")
-public class ClientController {
+@RequestMapping("/maintenanceKind")
+public class MaintenanceKindController {
 
 	@Autowired
-	IClientService clientService;
+	IMaintenanceKindService maintenanceKindService;
 
 	/**************************************************/
 
 	@GetMapping()
-	public ResponseEntity<List<Client>> listClients() {
-		return this.clientService.listClients();
+	public ResponseEntity<List<MaintenanceKind>> listMaintenanceKind() {
+		return this.maintenanceKindService.listMaintenanceKinds();
 	}
 
 	/**************************************************/
 
-	@GetMapping(value = "/{idClient}")
-	public ResponseEntity<Client> getClientById(@PathVariable("idClient") Integer idClient) {
-		return this.clientService.getClientById(idClient);
+	@GetMapping(value = "/{idMaintenanceKind}")
+	public ResponseEntity<MaintenanceKind> getidMaintenanceKindById(
+			@PathVariable("idMaintenanceKind") Integer idMaintenanceKind) {
+		return this.maintenanceKindService.getMaintenanceKindById(idMaintenanceKind);
 	}
 
 	/**************************************************/
 
 	@PostMapping(value = "/create")
-	public ResponseEntity<Client> createClient(@RequestBody Client client) {
-		return this.clientService.createClient(client);
+	public ResponseEntity<MaintenanceKind> createMaintenanceKind(@RequestBody MaintenanceKind maintenanceKind) {
+		return this.maintenanceKindService.createMaintenanceKind(maintenanceKind);
 	}
-	
+
 	/**************************************************/
 
 	@DeleteMapping(value = "/delete")
-	public ResponseEntity<Void> deleteClient(@PathParam("idClient") Integer idClient) {
-		return this.clientService.deleteClientById(idClient);
+	public ResponseEntity<Void> deleteMaintenanceKind(@PathParam("idMaintenanceKind") Integer idMaintenanceKind) {
+		return this.maintenanceKindService.deleteMaintenanceKindById(idMaintenanceKind);
 	}
-	
+
 	/**************************************************/
-	
+
 	@PutMapping(value = "/update")
-	public ResponseEntity<Client> updateClient(@RequestBody Client client) {
-		return this.clientService.updateClient(client);
+	public ResponseEntity<MaintenanceKind> updateMaintenanceKind(@RequestBody MaintenanceKind maintenanceKind) {
+		return this.maintenanceKindService.updateMaintenanceKind(maintenanceKind);
 	}
+
 }

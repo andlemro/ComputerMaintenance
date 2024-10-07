@@ -14,51 +14,51 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.co.cliencontrol.interfaces.IClientService;
-import com.co.cliencontrol.model.Client;
+import com.co.cliencontrol.interfaces.IDeviceService;
+import com.co.cliencontrol.model.Device;
 
 import jakarta.websocket.server.PathParam;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/clients")
-public class ClientController {
+@RequestMapping("/devices")
+public class DeviceController {
 
 	@Autowired
-	IClientService clientService;
+	IDeviceService deviceService;
 
 	/**************************************************/
 
 	@GetMapping()
-	public ResponseEntity<List<Client>> listClients() {
-		return this.clientService.listClients();
+	public ResponseEntity<List<Device>> listDevices() {
+		return this.deviceService.listDevices();
 	}
 
 	/**************************************************/
 
-	@GetMapping(value = "/{idClient}")
-	public ResponseEntity<Client> getClientById(@PathVariable("idClient") Integer idClient) {
-		return this.clientService.getClientById(idClient);
+	@GetMapping(value = "/{idDevice}")
+	public ResponseEntity<Device> getDeviceById(@PathVariable("idDevice") Integer idDevice) {
+		return this.deviceService.getDeviceById(idDevice);
 	}
 
 	/**************************************************/
 
 	@PostMapping(value = "/create")
-	public ResponseEntity<Client> createClient(@RequestBody Client client) {
-		return this.clientService.createClient(client);
+	public ResponseEntity<Device> createDevice(@RequestBody Device device) {
+		return this.deviceService.createDevice(device);
 	}
-	
+
 	/**************************************************/
 
 	@DeleteMapping(value = "/delete")
-	public ResponseEntity<Void> deleteClient(@PathParam("idClient") Integer idClient) {
-		return this.clientService.deleteClientById(idClient);
+	public ResponseEntity<Void> deleteDevice(@PathParam("idDevice") Integer idDevice) {
+		return this.deviceService.deleteDeviceById(idDevice);
 	}
-	
+
 	/**************************************************/
-	
+
 	@PutMapping(value = "/update")
-	public ResponseEntity<Client> updateClient(@RequestBody Client client) {
-		return this.clientService.updateClient(client);
+	public ResponseEntity<Device> updateDevice(@RequestBody Device device) {
+		return this.deviceService.uptadeDevice(device);
 	}
 }
