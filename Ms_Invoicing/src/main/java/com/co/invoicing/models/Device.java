@@ -1,6 +1,6 @@
-package com.co.cliencontrol.models;
+package com.co.invoicing.models;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -22,33 +22,33 @@ import lombok.NoArgsConstructor;
 public class Device {
 
 	@Id
-	@Column(name = "id_device", unique=true)
+	@Column(name = "id_device", unique = true)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer idDevice;
-	
-	@Column(name = "maintenance_date", nullable=false)
-	private Date maintenanceDate;
-	
-	@Column(name = "description", nullable=false, length = 200)
+
+	@Column(name = "maintenance_date", nullable = false)
+	private LocalDateTime maintenanceDate;
+
+	@Column(name = "description", nullable = false, length = 200)
 	private String description;
-	
-	@Column(name = "model", nullable=false, length = 200)
+
+	@Column(name = "model", nullable = false, length = 30)
 	private String model;
-	
+
 	@ManyToOne(optional = false)
-	@JoinColumn(name="id_client", referencedColumnName="id_client", nullable=false)
+	@JoinColumn(name = "id_client", referencedColumnName = "id_client", nullable = false)
 	private Client idClient;
-	
+
 	@ManyToOne(optional = false)
-	@JoinColumn(name="id_trade_mark", referencedColumnName="id_trade_mark", nullable=false)
+	@JoinColumn(name = "id_trade_mark", referencedColumnName = "id_trade_mark", nullable = false)
 	private TradeMark idTradeMark;
-	
+
 	@ManyToOne(optional = false)
-	@JoinColumn(name="id_maintenance_kind", referencedColumnName="id_maintenance_kind", nullable=false)
+	@JoinColumn(name = "id_maintenance_kind", referencedColumnName = "id_maintenance_kind", nullable = false)
 	private MaintenanceKind idMaintenanceKind;
-	
+
 	@ManyToOne(optional = false)
-	@JoinColumn(name="id_device_type", referencedColumnName="id_device_type", nullable=false)
-	private TypeDevice idTypeDevice;
-	
+	@JoinColumn(name = "id_device_type", referencedColumnName = "id_device_type", nullable = false)
+	private DeviceType idDeviceType;
+
 }

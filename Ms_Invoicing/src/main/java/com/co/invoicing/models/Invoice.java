@@ -1,4 +1,4 @@
-package com.co.cliencontrol.models;
+package com.co.invoicing.models;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -19,13 +19,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "Invoice")
+@Table(name = "invoices")
 public class Invoice {
 
 	@Id
 	@Column(name = "id_invoice", unique = true)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer idInvoice;
+	
+	@Column(name = "invoice_number", nullable = false)
+	private Long invoiceNumber;
 
 	@Column(name = "service_description", nullable = false, length = 40)
 	private String serviceDescription;
@@ -33,13 +36,13 @@ public class Invoice {
 	@Column(name = "date_registered", nullable = false, length = 40)
 	private LocalDateTime dateRegistered;
 
-	@Column(name = "subtotalCost", precision = 15, scale = 2, nullable = false)
+	@Column(name = "subtotal_cost", precision = 15, scale = 2, nullable = false)
 	private BigDecimal subtotalCost;
 
 	@Column(name = "iva_cost", precision = 15, scale = 2, nullable = false)
 	private BigDecimal ivaCost;
 
-	@Column(name = "totalCost", precision = 15, scale = 2, nullable = false)
+	@Column(name = "total_cost", precision = 15, scale = 2, nullable = false)
 	private BigDecimal totalCost;
 
 	@ManyToOne(optional = false)
@@ -49,4 +52,5 @@ public class Invoice {
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "id_company", referencedColumnName = "id_company", nullable = false)
 	private Company idCompany;
+
 }

@@ -1,4 +1,4 @@
-package com.co.cliencontrol.models;
+package com.co.invoicing.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -21,6 +21,9 @@ public class Company {
 	@Column(name = "id_company", unique = true)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer idCompany;
+
+	@Column(name = "nit", nullable = false, unique = true)
+	private Long nit;
 
 	@Column(name = "company_name", nullable = false, length = 40)
 	private String companyName;

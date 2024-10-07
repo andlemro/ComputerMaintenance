@@ -1,4 +1,4 @@
-package com.co.cliencontrol.models;
+package com.co.invoicing.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -22,7 +22,7 @@ public class MaintenanceKind {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer idMaintenanceKind;
 
-	@Column(name = "kind", nullable = false, length = 50)
+	@Column(name = "kind", nullable = false, length = 30)
 	private String kind;
 
 }
