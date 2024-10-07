@@ -1,4 +1,4 @@
-package com.co.cliencontrol.models;
+package com.co.users.models;
 
 import java.util.Set;
 
@@ -19,23 +19,22 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "roles")
-public class Rol {
+@Table(name = "users")
+public class User {
 
 	@Id
-	@Column(name = "id_rol", unique = true)
+	@Column(name = "id_user", unique = true)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Integer idRol;
+	private Integer idUser;
 
-	@Column(name = "rol_name", nullable = false, length = 20)
-	private String rolName;
+	@Column(name = "username", nullable = false, length = 20)
+	private String username;
+
+	@Column(name = "pass", nullable = false, length = 20)
+	private String pass;
 
 	@ManyToMany
-	@JoinTable(name = "roles_permissions", 
-	joinColumns = @JoinColumn(name = "id_rol"), 
-	inverseJoinColumns = @JoinColumn(name = "id_permission"))
-	private Set<Permission> permissions;
+	@JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "id_user"), inverseJoinColumns = @JoinColumn(name = "id_rol"))
+	private Set<Rol> roles;
 
-	@ManyToMany(mappedBy = "roles")
-	private Set<User> users;
 }

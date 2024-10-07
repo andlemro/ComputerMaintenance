@@ -1,4 +1,4 @@
-package com.co.cliencontrol.models;
+package com.co.users.models;
 
 import java.util.Set;
 
@@ -25,7 +25,7 @@ public class Permission {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Integer idPermission;
 
-	@Column(name = "permissionName", nullable = false, length = 25)
+	@Column(name = "permission_name", nullable = false, length = 25)
 	private String permissionName;
 
 	@Column(name = "description", nullable = false, length = 40)

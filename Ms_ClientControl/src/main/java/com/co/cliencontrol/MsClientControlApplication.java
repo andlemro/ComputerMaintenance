@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ComputerMaintenanceBackApplication {
+public class MsClientControlApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ComputerMaintenanceBackApplication.class, args);
+		SpringApplication.run(MsClientControlApplication.class, args);
 	}
 
 }

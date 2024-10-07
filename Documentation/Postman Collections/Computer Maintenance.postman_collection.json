@@ -1,0 +1,906 @@
+{
+	"info": {
+		"_postman_id": "3f9a6a71-628a-4d01-b33f-5b041148b00b",
+		"name": "Computer Maintenance",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7780597"
+	},
+	"item": [
+		{
+			"name": "Clients",
+			"item": [
+				{
+					"name": "List Clients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/clients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Client by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/clients/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"clients",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Client",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Andres\",\r\n    \"lastName\": \"Lopez\",\r\n    \"phoneNumber\": \"3215582341\",\r\n    \"email\": \"andres.lemos@mail.com\",\r\n    \"address\": \"Calle 21 # 33 - 47\",\r\n    \"neighborhood\": \"Santa Barbara\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/clients/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"clients",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Client",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/clients/delete?idClient=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"clients",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "idClient",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Client",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idClient\": 3,\r\n    \"name\": \"Carlos\",\r\n    \"lastName\": \"Narvaez\",\r\n    \"phoneNumber\": \"3014897732\",\r\n    \"email\": \"Carlos.Narvaez@mail.com\",\r\n    \"address\": \"Calle 12 # 44 - 23\",\r\n    \"neighborhood\": \"Rivera\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/clients/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"clients",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Company",
+			"item": [
+				{
+					"name": "List Companies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/company",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Company by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/company/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"company",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Company",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nit\": 1234,\r\n    \"companyName\": \"CompoCord\",\r\n    \"address\": \"calle 27 # 33 - 44\",\r\n    \"email\": \"CumpoCord@mail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/company/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"company",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Company",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/company/delete?idCompany=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"company",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "idCompany",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Company",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idCompany\": 2,\r\n    \"nit\": 1234,\r\n    \"companyName\": \"TestCord\",\r\n    \"address\": \"calle 27 # 33 - 44\",\r\n    \"email\": \"CumpoCord@mail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/company/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"company",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Devices",
+			"item": [
+				{
+					"name": "List Devices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/devices",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"devices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Device by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/devices/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"devices",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Device",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"description\": \"test\",\r\n        \"model\": \"FSA-123\",\r\n        \"idClient\": {\r\n            \"idClient\": 3,\r\n            \"name\": \"Carlos\",\r\n            \"lastName\": \"Narvaez\",\r\n            \"phoneNumber\": \"3014897732\",\r\n            \"email\": \"Carlos.Narvaez@mail.com\",\r\n            \"address\": \"Calle 12 # 44 - 23\",\r\n            \"neighborhood\": \"Rivera\"\r\n        },\r\n        \"idTradeMark\": {\r\n            \"idTradeMark\": 1,\r\n            \"markName\": \"Asus\"\r\n        },\r\n        \"idMaintenanceKind\": {\r\n            \"idMaintenanceKind\": 3,\r\n            \"kind\": \"Preventivo\"\r\n        },\r\n        \"idDeviceType\": {\r\n            \"idDeviceType\": 1,\r\n            \"deviceTypeName\": \"Portatil\"\r\n        }\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/devices/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"devices",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Device",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/devices/delete?idDevice=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"devices",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "idDevice",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Device",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idDevice\": 3,\r\n    \"description\": \"Mantenimiento Preventivo\",\r\n    \"model\": \"FSA-123\",\r\n    \"idClient\": {\r\n        \"idClient\": 3,\r\n        \"name\": \"Carlos\",\r\n        \"lastName\": \"Narvaez\",\r\n        \"phoneNumber\": \"3014897732\",\r\n        \"email\": \"Carlos.Narvaez@mail.com\",\r\n        \"address\": \"Calle 12 # 44 - 23\",\r\n        \"neighborhood\": \"Rivera\"\r\n    },\r\n    \"idTradeMark\": {\r\n        \"idTradeMark\": 1,\r\n        \"markName\": \"Asus\"\r\n    },\r\n    \"idMaintenanceKind\": {\r\n        \"idMaintenanceKind\": 3,\r\n        \"kind\": \"Preventivo\"\r\n    },\r\n    \"idDeviceType\": {\r\n        \"idDeviceType\": 1,\r\n        \"deviceTypeName\": \"Portatil\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/devices/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"devices",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DevicesTypes",
+			"item": [
+				{
+					"name": "List DevicsTypes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/deviceType",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"deviceType"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get DevicesTypes by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/deviceType/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"deviceType",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create DeviceType",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"deviceTypeName\": \"Tablet\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/deviceType/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"deviceType",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete DeviceType",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/deviceType/delete?idDeviceType=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"deviceType",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "idDeviceType",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update DeviceType",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"idDeviceType\": 3,\r\n        \"deviceTypeName\": \"Todo en uno\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/deviceType/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"deviceType",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Invoices",
+			"item": [
+				{
+					"name": "List Invoices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/invoices",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"invoices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Invoice by invoiceNumber",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/invoices/1234",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"invoices",
+								"1234"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Invoice",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"invoiceNumber\": 1234,\r\n    \"serviceDescription\" : \"Mantenimiento Equipo\",\r\n    \"subtotalCost\": 21,\r\n    \"ivaCost\": 91,\r\n    \"totalCost\": 30,\r\n    \"idClient\": {\r\n        \"idClient\": 3,\r\n        \"name\": \"Carlos\",\r\n        \"lastName\": \"Narvaez\",\r\n        \"phoneNumber\": \"3014897732\",\r\n        \"email\": \"Carlos.Narvaez@mail.com\",\r\n        \"address\": \"Calle 12 # 44 - 23\",\r\n        \"neighborhood\": \"Rivera\"\r\n    },\r\n    \"idCompany\": {\r\n        \"idCompany\": 2,\r\n        \"nit\": 1234,\r\n        \"companyName\": \"TestCord\",\r\n        \"address\": \"calle 27 # 33 - 44\",\r\n        \"email\": \"CumpoCord@mail.com\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/invoices/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"invoices",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Invoice",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/invoices/delete?invoiceNumber=1234",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"invoices",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "invoiceNumber",
+									"value": "1234"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Invoice",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idInvoice\": 2,\r\n    \"invoiceNumber\": 1234,\r\n    \"serviceDescription\": \"Mantenimiento Preventivo\",\r\n    \"dateRegistered\": null,\r\n    \"subtotalCost\": 21.00,\r\n    \"ivaCost\": 91.00,\r\n    \"totalCost\": 30.00,\r\n    \"idClient\": {\r\n        \"idClient\": 3,\r\n        \"name\": \"Carlos\",\r\n        \"lastName\": \"Narvaez\",\r\n        \"phoneNumber\": \"3014897732\",\r\n        \"email\": \"Carlos.Narvaez@mail.com\",\r\n        \"address\": \"Calle 12 # 44 - 23\",\r\n        \"neighborhood\": \"Rivera\"\r\n    },\r\n    \"idCompany\": {\r\n        \"idCompany\": 2,\r\n        \"nit\": 1234,\r\n        \"companyName\": \"TestCord\",\r\n        \"address\": \"calle 27 # 33 - 44\",\r\n        \"email\": \"CumpoCord@mail.com\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/invoices/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"invoices",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MaintenanceKind",
+			"item": [
+				{
+					"name": "List MaintenanceKinds",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/maintenanceKind",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"maintenanceKind"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get MaintenanceKind By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/maintenanceKind/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"maintenanceKind",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create MaintenanceKind",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"kind\": \"Correctivo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/maintenanceKind/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"maintenanceKind",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete MaintenanceKind",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/maintenanceKind/delete?idMaintenanceKind=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"maintenanceKind",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "idMaintenanceKind",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update MaintenanceKind",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idMaintenanceKind\": 3,\r\n    \"kind\": \"Preventivo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/maintenanceKind/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"maintenanceKind",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TradeMark",
+			"item": [
+				{
+					"name": "List Trade Marks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/tradeMark",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"tradeMark"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get TRadeMark by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/tradeMark/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"tradeMark",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create TradeMark",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"markName\": \"HP\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/tradeMark/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"tradeMark",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete TradeMark",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/tradeMark/delete?idTradeMark=4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"tradeMark",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "idTradeMark",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update TradeMark",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"idTradeMark\": 3,\r\n        \"markName\": \"HP\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/tradeMark/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"tradeMark",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+		
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">		      
+			<pattern> 
+				%d{dd-MM-yyyy HH:mm:ss.SSS} %-5level %c{1}:%L - %msg%n
+			</pattern>
+		</encoder>
+	 </appender>		
+  	
+	<appender name="SAVE-TO-FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+	    <file>log.log</file>
+	    
+	    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+	        <Pattern>
+	        	%d{dd-MM-yyyy HH:mm:ss.SSS} %-5level %c{1}:%L - %msg%n
+	        </Pattern>
+	    </encoder>
+	    
+	    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+	        <fileNamePattern>log/log_%d{yyyy-MM-dd HH:00:00}.log</fileNamePattern>
+	        <totalSizeCap>100MB</totalSizeCap>
+	    </rollingPolicy>
+	</appender>
+
+
+	<root level="info">
+	   <appender-ref ref="STDOUT"/>				    
+	   <appender-ref ref="SAVE-TO-FILE"/>		 
+	</root>		
+	
+	<logger name="org.springframework.web" level="ERROR" additivity="false">
+	          <appender-ref ref="STDOUT" /> 
+	          <appender-ref ref="SAVE-TO-FILE" /> 
+	</logger>
+	
+	<logger name="com.mkyong" level="DEBUG" additivity="false">
+	          <appender-ref ref="STDOUT" /> 
+	          <appender-ref ref="SAVE-TO-FILE" /> 
+	</logger>
+	
+	<logger name="co.com.gane.portalcautivo" level="INFO" additivity="false">      
+	          <appender-ref ref="STDOUT" /> 
+	          <appender-ref ref="SAVE-TO-FILE" /> 
+	</logger>
+
+</configuration>
