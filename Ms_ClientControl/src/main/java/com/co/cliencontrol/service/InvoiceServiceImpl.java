@@ -3,6 +3,8 @@ package com.co.cliencontrol.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.co.cliencontrol.interfaces.IInvoiceService;
@@ -14,41 +16,62 @@ public class InvoiceServiceImpl implements IInvoiceService {
 
 	@Autowired
 	InvoiceRepository invoiceRepository;
-	
-	/**************************************************/
-	
-	@Override
-	public List<Invoice> listInvoices() {
-		return this.invoiceRepository.findAll();
-	}
-	
+
 	/**************************************************/
 
 	@Override
-	public Invoice getInvoiceByInvoiceNumber(Long invoiceNumber) {
-		return this.invoiceRepository.findByInvoiceNumber(invoiceNumber).get();
+	public ResponseEntity<List<Invoice>> listInvoices() {
+		try {
+			return new ResponseEntity<>(this.invoiceRepository.findAll(), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
 	}
-	
+
 	/**************************************************/
 
 	@Override
-	public void saveInvoice(Invoice invoice) {
-		this.invoiceRepository.save(invoice);
+	public ResponseEntity<Invoice> getInvoiceByInvoiceNumber(Long invoiceNumber) {
+		try {
+			return new ResponseEntity<Invoice>(this.invoiceRepository.findByInvoiceNumber(invoiceNumber).get(),
+					HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<Invoice>(HttpStatus.NOT_FOUND);
+		}
 	}
-	
+
 	/**************************************************/
 
 	@Override
-	public void deleteInvoiceByInvoiceNumber(Long invoiceNumber) {
-		this.invoiceRepository.deleteByInvoiceNumber(invoiceNumber);
-
+	public ResponseEntity<Invoice> createInvoice(Invoice invoice) {
+		try {
+			return new ResponseEntity<Invoice>(this.invoiceRepository.save(invoice), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<Invoice>(HttpStatus.BAD_REQUEST);
+		}
 	}
-	
+
 	/**************************************************/
 
 	@Override
-	public Invoice updateInvoice(Invoice invoice) {
-		return this.invoiceRepository.save(invoice);
+	public ResponseEntity<Void> deleteInvoiceByInvoiceNumber(Long invoiceNumber) {
+		try {
+			this.invoiceRepository.deleteByInvoiceNumber(invoiceNumber);
+			return new ResponseEntity<Void>(HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
+		}
 	}
 
+	/**************************************************/
+
+	@Override
+	public ResponseEntity<Invoice> updateInvoice(Invoice invoice) {
+		try {
+			return new ResponseEntity<Invoice>(this.invoiceRepository.save(invoice), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<Invoice>(HttpStatus.BAD_REQUEST);
+		}
+	}
+	
 }

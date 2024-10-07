@@ -3,6 +3,8 @@ package com.co.cliencontrol.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.co.cliencontrol.interfaces.ITradeMarkService;
@@ -14,40 +16,61 @@ public class TradeMarkServiceImpl implements ITradeMarkService {
 
 	@Autowired
 	TradeMarkRepository tradeMarkRepository;
-	
+
 	/**************************************************/
 
 	@Override
-	public List<TradeMark> listTradeMarks() {
-		return this.tradeMarkRepository.findAll();
+	public ResponseEntity<List<TradeMark>> listTradeMarks() {
+		try {
+			return new ResponseEntity<>(this.tradeMarkRepository.findAll(), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
 	}
-	
+
 	/**************************************************/
 
 	@Override
-	public TradeMark getTradeMarkById(Integer idTradeMark) {
-		return this.tradeMarkRepository.findById(idTradeMark).get();
+	public ResponseEntity<TradeMark> getTradeMarkById(Integer idTradeMark) {
+		try {
+			return new ResponseEntity<TradeMark>(this.tradeMarkRepository.findById(idTradeMark).get(), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<TradeMark>(HttpStatus.NOT_FOUND);
+		}
 	}
-	
+
 	/**************************************************/
 
 	@Override
-	public void saveTradeMark(TradeMark tradeMark) {
-		this.tradeMarkRepository.save(tradeMark);
+	public ResponseEntity<TradeMark> createTradeMark(TradeMark tradeMark) {
+		try {
+			return new ResponseEntity<TradeMark>(this.tradeMarkRepository.save(tradeMark), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<TradeMark>(HttpStatus.BAD_REQUEST);
+		}
 	}
-	
+
 	/**************************************************/
 
 	@Override
-	public void delteTradeMark(Integer idTradeMark) {
-		this.tradeMarkRepository.deleteById(idTradeMark);
+	public ResponseEntity<Void> deleteTradeMark(Integer idTradeMark) {
+		try {
+			this.tradeMarkRepository.deleteById(idTradeMark);
+			return new ResponseEntity<Void>(HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
+		}
 	}
-	
+
 	/**************************************************/
 
 	@Override
-	public TradeMark updateTradeMark(TradeMark tradeMark) {
-		return this.tradeMarkRepository.save(tradeMark);
+	public ResponseEntity<TradeMark> updateTradeMark(TradeMark tradeMark) {
+		try {
+			return new ResponseEntity<TradeMark>(this.tradeMarkRepository.save(tradeMark), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<TradeMark>(HttpStatus.BAD_REQUEST);
+		}
 	}
 
 }

@@ -3,6 +3,8 @@ package com.co.cliencontrol.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.co.cliencontrol.interfaces.IDeviceService;
@@ -14,40 +16,61 @@ public class DeviceServiceImpl implements IDeviceService {
 
 	@Autowired
 	DeviceRepository deviceRepository;
-	
-	/**************************************************/
-	
-	@Override
-	public List<Device> listDevices() {
-		return this.deviceRepository.findAll();
-	}
-	
+
 	/**************************************************/
 
 	@Override
-	public Device getDeviceById(Integer idDevice) {
-		return this.deviceRepository.findById(idDevice).get();
+	public ResponseEntity<List<Device>> listDevices() {
+		try {
+			return new ResponseEntity<>(this.deviceRepository.findAll(), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
 	}
-	
+
 	/**************************************************/
 
 	@Override
-	public void saveDevice(Device device) {
-		this.deviceRepository.save(device);
+	public ResponseEntity<Device> getDeviceById(Integer idDevice) {
+		try {
+			return new ResponseEntity<>(this.deviceRepository.findById(idDevice).get(), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
 	}
-	
+
 	/**************************************************/
 
 	@Override
-	public void deleteDeviceById(Integer IdDevice) {
-		this.deviceRepository.deleteById(IdDevice);
+	public ResponseEntity<Device> createDevice(Device device) {
+		try {
+			return new ResponseEntity<Device>(this.deviceRepository.save(device), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<Device>(HttpStatus.BAD_REQUEST);
+		}
 	}
-	
+
 	/**************************************************/
 
 	@Override
-	public Device uptadeDevice(Device device) {
-		return this.deviceRepository.save(device);
+	public ResponseEntity<Void> deleteDeviceById(Integer IdDevice) {
+		try {
+			this.deviceRepository.deleteById(IdDevice);
+			return new ResponseEntity<Void>(HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
+		}
+	}
+
+	/**************************************************/
+
+	@Override
+	public ResponseEntity<Device> uptadeDevice(Device device) {
+		try {
+			return new ResponseEntity<Device>(this.deviceRepository.save(device), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<Device>(HttpStatus.BAD_REQUEST);
+		}
 	}
 
 }

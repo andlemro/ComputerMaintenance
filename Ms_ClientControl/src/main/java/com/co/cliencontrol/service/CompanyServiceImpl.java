@@ -3,6 +3,8 @@ package com.co.cliencontrol.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.co.cliencontrol.interfaces.ICompanyService;
@@ -14,38 +16,61 @@ public class CompanyServiceImpl implements ICompanyService {
 
 	@Autowired
 	CompanyRepository companyRepository;
-	
+
 	/**************************************************/
-	
+
 	@Override
-	public List<Company> listCompanies() {
-		return this.companyRepository.findAll();
+	public ResponseEntity<List<Company>> listCompanies() {
+		try {
+			return new ResponseEntity<>(this.companyRepository.findAll(), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+
+	/**************************************************/
+
+	@Override
+	public ResponseEntity<Company> getCompanyById(Integer idCompany) {
+		try {
+			return new ResponseEntity<Company>(this.companyRepository.findById(idCompany).get(), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<Company>(HttpStatus.NOT_FOUND);
+		}
 	}
 	
 	/**************************************************/
 
 	@Override
-	public Company getCompanyById(Integer idCompany) {
-		return this.companyRepository.findById(idCompany).get();
+	public ResponseEntity<Company> createCompany(Company company) {
+		try {
+			return new ResponseEntity<Company>(this.companyRepository.save(company), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<Company>(HttpStatus.BAD_REQUEST);
+		}
 	}
 
-	@Override
-	public void saveCompany(Company company) {
-		this.companyRepository.save(company);
-	}
-	
 	/**************************************************/
 
 	@Override
-	public void deleteCompanyById(Integer idCompany) {
-		this.companyRepository.deleteById(idCompany);
+	public ResponseEntity<Void> deleteCompanyById(Integer idCompany) {
+		try {
+			this.companyRepository.deleteById(idCompany);
+			return new ResponseEntity<Void>(HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
+		}
 	}
-	
+
 	/**************************************************/
 
 	@Override
-	public Company updateCompay(Company company) {
-		return this.companyRepository.save(company);
+	public ResponseEntity<Company> updateCompay(Company company) {
+		try {
+			return new ResponseEntity<Company>(this.companyRepository.save(company), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<Company>(HttpStatus.BAD_REQUEST);
+		}
 	}
 
 }
