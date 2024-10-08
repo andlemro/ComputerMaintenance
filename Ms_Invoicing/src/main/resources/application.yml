@@ -1,0 +1,38 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: MsInvoicing
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-timeout: 60000
+      maximum-pool-size: 10
+      pool-name: pool-hikari-classico
+    password: 1234
+    url: jdbc:postgresql://localhost/computer_maintenance
+    username: postgres
+  jpa:
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    show-sql: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+logging:
+  config: file:logback.xml
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: 'TRACE '
