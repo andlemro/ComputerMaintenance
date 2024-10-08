@@ -8,7 +8,7 @@ Este proyecto está enfocado en la gestión integral de clientes que requieren s
 
 **Backend:** Java 17, Spring Web, Spring Security, Spring JPA.
 
-**Server:** Apache Tomcat.
+**Server:** Apache Tomcat, Eureka server.
 
 **Database** PostgreSQL
 
