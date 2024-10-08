@@ -11,7 +11,7 @@
 	<groupId>com.co.cliencontrol</groupId>
 	<artifactId>Ms_ClientControl</artifactId>
 	<version>0.0.1</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>Ms_ClientControl</name>
 	<description>Este microservicio se enfoca en la gestión eficiente de los datos de los clientes dentro del proyecto de mantenimiento de equipos de cómputo, facilitando el manejo y acceso a la información necesaria para la prestación de servicios.</description>
 	<url/>
@@ -60,7 +60,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
