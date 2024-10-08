@@ -11,7 +11,7 @@
 	<groupId>com.co.users</groupId>
 	<artifactId>Ms_Users</artifactId>
 	<version>0.0.1</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>Ms_Users</name>
 	<description>Este microservicio se especializa en la gestión de usuarios, roles y permisos dentro del proyecto de mantenimiento de equipos de cómputo, garantizando un control seguro y eficiente del acceso y las responsabilidades en el sistema.</description>
 	<url/>
@@ -58,7 +58,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
