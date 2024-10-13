@@ -1,0 +1,37 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: ms-users
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-timeout: 60000
+      maximum-pool-size: 10
+      pool-name: pool-hikari-classico
+    password: 1234
+    url: jdbc:postgresql://localhost/computer_maintenance
+    username: postgres
+  jpa:
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    show-sql: true
+management:
+  endpoints:
+    web:
+      exposure:
+        exclude: [ 'heapdump' ]
+        include: '*' 
+logging:
+  level:
+    org:
+      hibernate:
+        type: info
+      springframework:
+        web: info
