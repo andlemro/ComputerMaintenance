@@ -7,7 +7,7 @@ Esta microservicio se centra en la administración de los datos de clientes del 
 
 **Backend:** Java 17, Spring Web, Spring Security, Spring JPA.
 
-**Server:** Apache Tomcat.
+**Server:** Apache Tomcat, Eureka client.
 
 **Database** PostgreSQL
 

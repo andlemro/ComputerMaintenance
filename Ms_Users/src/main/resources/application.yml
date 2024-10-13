@@ -1,8 +1,8 @@
 server:
-  port: 7000
+  port: 8000
 spring:
   application:
-    name: ms-client-control
+    name: ms-users
   datasource:
     driver-class-name: org.postgresql.Driver
     hikari:
@@ -27,11 +27,7 @@ management:
     web:
       exposure:
         exclude: [ 'heapdump' ]
-        include: '*'
-info:
-  app:
-    name: "ms-client-control"
-    description: "microservicio de control de clientes"
+        include: '*' 
 logging:
   level:
     org:
