@@ -2,7 +2,7 @@ server:
   port: 7000
 spring:
   application:
-    name: ClientControl
+    name: ms-client-control
   datasource:
     driver-class-name: org.postgresql.Driver
     hikari:
@@ -22,17 +22,20 @@ spring:
           lob:
             non_contextual_creation: true
     show-sql: true
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka
+management:
+  endpoints:
+    web:
+      exposure:
+        exclude: [ 'heapdump' ]
+        include: '*'
+info:
+  app:
+    name: "ms-client-control"
+    description: "microservicio de control de clientes"
 logging:
-  config: file:logback.xml
   level:
     org:
       hibernate:
-        SQL: DEBUG
-        type:
-          descriptor:
-            sql:
-              BasicBinder: 'TRACE '
+        type: info
+      springframework:
+        web: info
