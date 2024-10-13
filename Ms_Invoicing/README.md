@@ -7,7 +7,7 @@ Este microservicio se encarga de gestionar la facturacion del proyecto de manten
 
 **Backend:** Java 17, Spring Web, Spring Security, Spring JPA.
 
-**Server:** Apache Tomcat.
+**Server:** Apache Tomcat, Eureka client.
 
 **Database** PostgreSQL
 
