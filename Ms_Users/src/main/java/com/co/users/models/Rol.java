@@ -4,6 +4,7 @@ import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -30,11 +31,8 @@ public class Rol {
 	@Column(name = "rol_name", nullable = false, length = 20)
 	private String rolName;
 
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "roles_permissions", joinColumns = @JoinColumn(name = "id_rol"), inverseJoinColumns = @JoinColumn(name = "id_permission"))
 	private Set<Permission> permissions;
-
-	@ManyToMany(mappedBy = "roles")
-	private Set<User> users;
 
 }

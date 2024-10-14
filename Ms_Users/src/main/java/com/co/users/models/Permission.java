@@ -1,13 +1,10 @@
 package com.co.users.models;
 
-import java.util.Set;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,8 +27,5 @@ public class Permission {
 
 	@Column(name = "description", nullable = false, length = 40)
 	private String description;
-
-	@ManyToMany(mappedBy = "permissions")
-	private Set<Rol> roles;
 
 }
