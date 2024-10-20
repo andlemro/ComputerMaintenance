@@ -17,7 +17,6 @@ public class InvoiceTest {
 	private Client client;
 	private Company company;
 	private Invoice invoice;
-	
 	private TestInfo testInfo;
 	private TestReporter testReporter;
 	
@@ -45,7 +44,7 @@ public class InvoiceTest {
 				this.client, 
 				this.company);
 		
-		testReporter.publishEntry(
+		this.testReporter.publishEntry(
 				"Running: " + 
 				testInfo.getDisplayName() +
 				" - " +
@@ -59,7 +58,6 @@ public class InvoiceTest {
 	
 	@Test
 	void notNullInvoiceTest() {
-		
 		assertAll(
 			// not null validations
 			() -> assertNotNull(this.invoice.getInvoiceNumber(),
@@ -78,7 +76,6 @@ public class InvoiceTest {
 					() -> "The idClient field cannot be null."),
 			() -> assertNotNull(this.invoice.getIdCompany(), 
 					() -> "The idCompany field cannot be null.")
-		
 		);
 	}
 	
@@ -86,7 +83,6 @@ public class InvoiceTest {
 	
 	@Test
 	void validateLengthTest() {
-		
 		assertAll(
 			() -> assertTrue(this.invoice.getServiceDescription().length() < 40,
 					() -> "The serviceDescription field exceeded the 40 character limit"),
