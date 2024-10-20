@@ -9,9 +9,9 @@ Este microservicio se encarga de gestionar la facturacion del proyecto de manten
 
 **Server:** Apache Tomcat.
 
-**Database** PostgreSQL.
+**Database:** PostgreSQL.
 
-**Test** JUnit 5, Postman.
+**Test:** JUnit 5, Postman.
 
 ## Documentation
 

@@ -9,9 +9,9 @@ Esta microservicio se centra en la administración de los usuarios, roles y perm
 
 **Server:** Apache Tomcat.
 
-**Database** PostgreSQL.
+**Database:** PostgreSQL.
 
-**Test** JUnit 5, Postman.
+**Test:** JUnit 5, Postman.
 
 ## Documentation
 
