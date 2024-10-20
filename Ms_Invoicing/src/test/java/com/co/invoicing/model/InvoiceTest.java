@@ -6,18 +6,28 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
+import org.junit.jupiter.api.TestReporter;
 
+@Tag("modelTest")
 public class InvoiceTest {
 	
-	Client client;
-	Company company;
-	Invoice invoice;
+	private Client client;
+	private Company company;
+	private Invoice invoice;
+	
+	private TestInfo testInfo;
+	private TestReporter testReporter;
 	
 	/**************************************************/
 	
 	@BeforeEach
-	void initTest( ) {
+	void initTest(TestInfo testInfo, TestReporter testReporter) {
+		this.testInfo = testInfo;
+		this.testReporter = testReporter;
+		
 		this.client = new Client(3, "Carlos", "Narvaez", 
 				"3014897732", "Carlos.Narvaez@mail.com",
 				"Calle 12 # 44 - 23", "Rivera");
@@ -34,6 +44,15 @@ public class InvoiceTest {
 				new BigDecimal("5950.00"), 
 				this.client, 
 				this.company);
+		
+		testReporter.publishEntry(
+				"Running: " + 
+				testInfo.getDisplayName() +
+				" - " +
+				testInfo.getTestMethod().orElse(null) +
+				" with the Tag: " +
+				testInfo.getTags()
+		);
 	}
 	
 	/**************************************************/
@@ -113,6 +132,8 @@ public class InvoiceTest {
 		assertEquals(950.00, this.invoice.getIvaCost().doubleValue());
 		assertEquals(this.invoice.getTotalCost(), result);
 	}
+	
+	/**************************************************/
 	
 	@Test
 	void costGreaterThanZeroTest( ) {
