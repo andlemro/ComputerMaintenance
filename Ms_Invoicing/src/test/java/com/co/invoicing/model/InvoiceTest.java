@@ -83,35 +83,43 @@ public class InvoiceTest {
 	
 	@Test
 	void validateLengthTest() {
+		int serviceDescriptionLimit = 40;
+		int subtotalCostWholePartLimit = 15;
+		int subtotalCostDecimalPartLimit = 2;
+		int ivaCostWholePartLimit = 15;
+		int ivaCostDecimalPartLimit = 2;
+		int totalCostWholePartLimit = 15;
+		int totalCostDecimalPartLimit = 2;
+		
 		assertAll(
-			() -> assertTrue(this.invoice.getServiceDescription().length() < 40,
-					() -> "The serviceDescription field exceeded the 40 character limit"),
+			() -> assertTrue(this.invoice.getServiceDescription().length() < serviceDescriptionLimit,
+					() -> "The serviceDescription field exceeded the " + serviceDescriptionLimit + " character limit"),
 			() -> {
 				String[] subtotalCostParts = this.invoice.getSubtotalCost().toPlainString().split("\\.");
 				String subtotalCostWholePart = subtotalCostParts[0];
 				String subtotalCostDecimalPart = subtotalCostParts[1];
-				assertTrue(subtotalCostWholePart.length() <= 15,
-						() -> "The Whole part of SubtotalCost field exceeded the 15 character limit");
-				assertTrue(subtotalCostDecimalPart.length() <= 2,
-						() -> "The Decimal part of SubtotalCost field exceeded the 2 character limit");
+				assertTrue(subtotalCostWholePart.length() <= subtotalCostWholePartLimit,
+						() -> "The Whole part of SubtotalCost field exceeded the " + subtotalCostWholePartLimit + " character limit");
+				assertTrue(subtotalCostDecimalPart.length() <= subtotalCostDecimalPartLimit,
+						() -> "The Decimal part of SubtotalCost field exceeded the " + subtotalCostDecimalPartLimit + " character limit");
 			},
 			() -> {
 				String[] ivaCostParts = this.invoice.getIvaCost().toPlainString().split("\\.");
 				String ivaCostWholePart = ivaCostParts[0];
 				String ivaCostDecimalPart = ivaCostParts[1];
-				assertTrue(ivaCostWholePart.length() <= 15,
-						() -> "The Whole part of ivaCost field exceeded the 15 character limit");
-				assertTrue(ivaCostDecimalPart.length() <= 2,
-						() -> "The Decimal part of ivaCost field exceeded the 2 character limit");
+				assertTrue(ivaCostWholePart.length() <= ivaCostWholePartLimit,
+						() -> "The Whole part of ivaCost field exceeded the " + ivaCostWholePartLimit + " character limit");
+				assertTrue(ivaCostDecimalPart.length() <= ivaCostDecimalPartLimit,
+						() -> "The Decimal part of ivaCost field exceeded the " + ivaCostDecimalPartLimit + " character limit");
 			},
 			() -> {
 				String[] totalCostParts = this.invoice.getTotalCost().toPlainString().split("\\.");
 				String totalCostWholePart = totalCostParts[0];
 				String totalCostDecimalPart = totalCostParts[1];
-				assertTrue(totalCostWholePart.length() <= 15,
-						() -> "The Whole part of totalCost field exceeded the 15 character limit");
-				assertTrue(totalCostDecimalPart.length() <= 2,
-						() -> "The Decimal part of totalCost field exceeded the 2 character limit");
+				assertTrue(totalCostWholePart.length() <= totalCostWholePartLimit,
+						() -> "The Whole part of totalCost field exceeded the " + totalCostWholePartLimit + " character limit");
+				assertTrue(totalCostDecimalPart.length() <= totalCostDecimalPartLimit,
+						() -> "The Decimal part of totalCost field exceeded the " + totalCostDecimalPartLimit + " character limit");
 			}
 		);
 	}
