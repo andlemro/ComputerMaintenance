@@ -33,7 +33,7 @@ public class PermissionServiceImpl implements IPermissionService {
 	@Override
 	public ResponseEntity<Permission> getPermissionById(Integer idPermission) {
 		try {
-			return new ResponseEntity<Permission>(this.permissionRepository.findById(idPermission).get(),
+			return new ResponseEntity<Permission>(this.permissionRepository.findById(idPermission).orElseThrow(),
 					HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<Permission>(HttpStatus.NOT_FOUND);
