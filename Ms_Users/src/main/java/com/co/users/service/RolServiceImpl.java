@@ -33,7 +33,7 @@ public class RolServiceImpl implements IRolService {
 	@Override
 	public ResponseEntity<Rol> getRolById(Integer idRol) {
 		try {
-			return new ResponseEntity<Rol>(this.rolRepository.findById(idRol).get(), HttpStatus.OK);
+			return new ResponseEntity<Rol>(this.rolRepository.findById(idRol).orElseThrow(), HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<Rol>(HttpStatus.NOT_FOUND);
 		}
