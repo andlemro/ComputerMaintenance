@@ -11,6 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,7 +26,8 @@ public class Rol {
 
 	@Id
 	@Column(name = "id_rol", unique = true)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "roles_generator")
+	@SequenceGenerator(name = "roles_generator", sequenceName = "roles_seq", allocationSize = 1)
 	private Integer idRol;
 
 	@Column(name = "rol_name", nullable = false, length = 20)

@@ -10,9 +10,9 @@ Este proyecto está enfocado en la gestión integral de clientes que requieren s
 
 **Server:** Apache Tomcat.
 
-**Database** PostgreSQL.
+**Database:** PostgreSQL.
 
-**Test** JUnit 5, Postman.
+**Test:** JUnit 5, Postman.
 
 ## Documentation
 

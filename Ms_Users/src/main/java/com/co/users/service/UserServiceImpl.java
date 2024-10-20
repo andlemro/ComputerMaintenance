@@ -33,7 +33,7 @@ public class UserServiceImpl implements IUserService {
 	@Override
 	public ResponseEntity<User> getUserById(Integer idUser) {
 		try {
-			return new ResponseEntity<User>(this.userRepository.findById(idUser).get(), HttpStatus.OK);
+			return new ResponseEntity<User>(this.userRepository.findById(idUser).orElseThrow(), HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
 		}
