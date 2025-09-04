@@ -17,15 +17,11 @@ public class InvoiceTest {
 	private Client client;
 	private Company company;
 	private Invoice invoice;
-	private TestInfo testInfo;
-	private TestReporter testReporter;
 	
 	/**************************************************/
 	
 	@BeforeEach
 	void initTest(TestInfo testInfo, TestReporter testReporter) {
-		this.testInfo = testInfo;
-		this.testReporter = testReporter;
 		
 		this.client = new Client(3, "Carlos", "Narvaez", 
 				"3014897732", "Carlos.Narvaez@mail.com",
@@ -44,7 +40,7 @@ public class InvoiceTest {
 				this.client, 
 				this.company);
 		
-		this.testReporter.publishEntry(
+		testReporter.publishEntry(
 				"Running: " + 
 				testInfo.getDisplayName() +
 				" - " +

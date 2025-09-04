@@ -1,14 +1,9 @@
 package com.co.users.service;
 
-import static com.co.users.utils.PermissionData.PERMISSION;
-import static com.co.users.utils.PermissionData.PERMISSIONS_LIST;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static com.co.users.utils.PermissionData.*;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.Mockito.*;
 
 import java.util.List;
 
@@ -44,6 +39,18 @@ public class PermissionServiceImplTest {
 	}
 
 	/**************************************************/
+	
+	@Test
+	void getPermissionByIdTest() {
+		when(this.permissionRepository.findById(anyInt())).thenReturn(GET_PERMISSION_ID);
+		Permission permissionById = this.permissionServiceImpl.getPermissionById(anyInt()).getBody();
+		
+		assertNotNull(permissionById.getIdPermission());
+		assertEquals(4, permissionById.getIdPermission());
+		assertEquals("permission_delete", permissionById.getPermissionName());
+	}
+	
+	/**************************************************/
 
 	@Test
 	void createPermissionTest() {
@@ -51,10 +58,33 @@ public class PermissionServiceImplTest {
 		Permission newPermission = this.permissionServiceImpl.createPermission(PERMISSION).getBody();
 		
 		assertNotNull(newPermission.getIdPermission());
-		assertEquals(4, newPermission.getIdPermission());
-		assertEquals("permission_delete", newPermission.getPermissionName());
+		assertEquals(5, newPermission.getIdPermission());
+		assertEquals("permission_create_new", newPermission.getPermissionName());
 		
 		verify(this.permissionRepository).save(any(Permission.class));
 	}
+	
+	/**************************************************/
+
+	@Test
+	void updatePermissionTest() {
+		when(this.permissionRepository.save(any(Permission.class))).thenReturn(PERMISSION_UPDATED);
+		Permission updatedPermission = this.permissionServiceImpl.updatePermission(PERMISSION_UPDATED).getBody();
+		
+		assertNotNull(updatedPermission.getIdPermission());
+		assertEquals(6, updatedPermission.getIdPermission());
+		assertEquals("permission_update", updatedPermission.getPermissionName());
+		
+		verify(this.permissionRepository).save(any(Permission.class));
+	}
+	
+	/**************************************************/
+	
+//	@Test
+//	void deletePermissionTest() {
+//		doReturn(HttpStatus.OK).when(this.permissionRepository).deleteById(anyInt());
+//		
+//		verify(this.permissionRepository).deleteById(anyInt());
+//	}
 
 }

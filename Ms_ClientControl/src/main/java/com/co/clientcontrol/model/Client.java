@@ -42,6 +42,4 @@ public class Client {
 	@Column(name = "neighborhood", nullable = false, length = 50)
 	private String neighborhood;
 
-//	@OneToMany(mappedBy = "idDevice")
-//	private List<Device> devicesList;
 }
