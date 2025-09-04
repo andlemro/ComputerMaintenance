@@ -47,15 +47,15 @@ public class PermissionServiceImplTest {
 		
 		assertNotNull(permissionById.getIdPermission());
 		assertEquals(4, permissionById.getIdPermission());
-		assertEquals("permission_delete", permissionById.getPermissionName());
+		assertEquals("get_permission_id", permissionById.getPermissionName());
 	}
 	
 	/**************************************************/
 
 	@Test
 	void createPermissionTest() {
-		when(this.permissionRepository.save(any(Permission.class))).thenReturn(PERMISSION);
-		Permission newPermission = this.permissionServiceImpl.createPermission(PERMISSION).getBody();
+		when(this.permissionRepository.save(any(Permission.class))).thenReturn(PERMISSION_CREATED);
+		Permission newPermission = this.permissionServiceImpl.createPermission(PERMISSION_CREATED).getBody();
 		
 		assertNotNull(newPermission.getIdPermission());
 		assertEquals(5, newPermission.getIdPermission());
