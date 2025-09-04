@@ -19,8 +19,6 @@ public class UserTest {
 	private Rol rol;
 	private User user;
 	private Permission permission;
-	private TestInfo testInfo;
-	private TestReporter testReporter;
 	
 	/**************************************************/
 	
@@ -52,7 +50,7 @@ public class UserTest {
 	/**************************************************/
 	
 	@Test
-	void notNullInvoiceTest() {
+	void notNullUserTest() {
 		assertAll(
 			() -> assertNotNull(this.user.getUsername(),
 					() -> "The username field cannot be null."),

@@ -18,8 +18,6 @@ public class RolTest {
 	
 	private Rol rol;
 	private Permission permission;
-	private TestInfo testInfo;
-	private TestReporter testReporter;
 	
 	/**************************************************/
 	
@@ -44,7 +42,7 @@ public class RolTest {
 	/**************************************************/
 	
 	@Test
-	void notNullInvoiceTest() {
+	void notNullRolTest() {
 		assertAll(
 			() -> assertNotNull(this.rol.getRolName(),
 					() -> "The rolName field cannot be null."),

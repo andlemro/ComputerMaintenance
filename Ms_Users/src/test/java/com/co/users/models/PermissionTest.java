@@ -14,19 +14,15 @@ import org.junit.jupiter.api.TestReporter;
 public class PermissionTest {
 	
 	private Permission permission;
-	private TestInfo testInfo;
-	private TestReporter testReporter;
 	
 	/**************************************************/
 	
 	@BeforeEach
 	void initTest(TestInfo testInfo, TestReporter testReporter) {
-		this.testInfo = testInfo;
-		this.testReporter = testReporter;
 		
 		this.permission = new Permission(1, "permission_access", "Acceso a modulo de permisos");
 		
-		this.testReporter.publishEntry(
+		testReporter.publishEntry(
 				"Running: " + 
 				testInfo.getDisplayName() +
 				" - " +
@@ -40,7 +36,7 @@ public class PermissionTest {
 	/**************************************************/
 	
 	@Test
-	void notNullInvoiceTest() {
+	void notNullPermissionTest() {
 		assertAll(
 			() -> assertNotNull(this.permission.getPermissionName(),
 					() -> "The permissionName field cannot be null."),
