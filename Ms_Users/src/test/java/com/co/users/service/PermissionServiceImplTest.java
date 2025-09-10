@@ -7,6 +7,7 @@ import static org.mockito.Mockito.*;
 
 import java.util.List;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -28,6 +29,7 @@ public class PermissionServiceImplTest {
 	/**************************************************/
 
 	@Test
+	@DisplayName("Validation the permission List Service in PermissionServiceImplTest")
 	void listPermissionsTest() {
 		when(this.permissionRepository.findAll()).thenReturn(PERMISSIONS_LIST);
 		List<Permission> listPermissions = this.permissionServiceImpl.listPermissions().getBody();
@@ -41,6 +43,7 @@ public class PermissionServiceImplTest {
 	/**************************************************/
 	
 	@Test
+	@DisplayName("Validation the permission Get Service in PermissionServiceImplTest")
 	void getPermissionByIdTest() {
 		when(this.permissionRepository.findById(anyInt())).thenReturn(GET_PERMISSION_ID);
 		Permission permissionById = this.permissionServiceImpl.getPermissionById(anyInt()).getBody();
@@ -53,6 +56,7 @@ public class PermissionServiceImplTest {
 	/**************************************************/
 
 	@Test
+	@DisplayName("Validation the permission Create Service in PermissionServiceImplTest")
 	void createPermissionTest() {
 		when(this.permissionRepository.save(any(Permission.class))).thenReturn(PERMISSION_CREATED);
 		Permission newPermission = this.permissionServiceImpl.createPermission(PERMISSION_CREATED).getBody();
@@ -67,6 +71,7 @@ public class PermissionServiceImplTest {
 	/**************************************************/
 
 	@Test
+	@DisplayName("Validation the permission Update Service in PermissionServiceImplTest")
 	void updatePermissionTest() {
 		when(this.permissionRepository.save(any(Permission.class))).thenReturn(PERMISSION_UPDATED);
 		Permission updatedPermission = this.permissionServiceImpl.updatePermission(PERMISSION_UPDATED).getBody();

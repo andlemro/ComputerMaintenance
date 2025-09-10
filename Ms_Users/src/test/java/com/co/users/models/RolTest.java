@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
@@ -42,6 +43,7 @@ public class RolTest {
 	/**************************************************/
 	
 	@Test
+	@DisplayName("Validation of not null in RolTest model")
 	void notNullRolTest() {
 		assertAll(
 			() -> assertNotNull(this.rol.getRolName(),
@@ -54,6 +56,7 @@ public class RolTest {
 	/**************************************************/
 	
 	@Test
+	@DisplayName("Validation of maximum length in RolTest model")
 	void validateLengthTest() {
 		int rolNameLimit = 25;
 		assertTrue(this.rol.getRolName().length() < rolNameLimit,
