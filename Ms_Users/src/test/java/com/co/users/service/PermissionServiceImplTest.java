@@ -7,8 +7,12 @@ import static org.mockito.Mockito.*;
 
 import java.util.List;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
+import org.junit.jupiter.api.TestReporter;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -17,6 +21,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import com.co.users.models.Permission;
 import com.co.users.repository.PermissionRepository;
 
+@Tag("serviceTest")
 @ExtendWith(MockitoExtension.class)
 public class PermissionServiceImplTest {
 
@@ -25,6 +30,20 @@ public class PermissionServiceImplTest {
 
 	@InjectMocks
 	PermissionServiceImpl permissionServiceImpl;
+	
+	/**************************************************/
+	
+	@BeforeEach
+	void initTest(TestInfo testInfo, TestReporter testReporter) {
+		testReporter.publishEntry(
+				"Running: " + 
+				testInfo.getDisplayName() +
+				" - " +
+				testInfo.getTestMethod().orElse(null).getName() +
+				" with the Tag: " +
+				testInfo.getTags()
+		);
+	}
 
 	/**************************************************/
 
