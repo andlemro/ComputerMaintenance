@@ -27,7 +27,7 @@ public class PermissionTest {
 				"Running: " + 
 				testInfo.getDisplayName() +
 				" - " +
-				testInfo.getTestMethod().orElse(null) +
+				testInfo.getTestMethod().orElse(null).getName() +
 				" with the Tag: " +
 				testInfo.getTags()
 		);
