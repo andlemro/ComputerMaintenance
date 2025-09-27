@@ -13,9 +13,9 @@ public class PermissionData {
 		new Permission(3, "permission_create", "Permite crear en el modulo de permisos")
 	);
 	
-	public final static Optional<Permission> GET_PERMISSION_ID = Optional.ofNullable(new Permission(4, "permission_delete", "Permite eliminar un registro en el modulo de permisos"));
+	public final static Optional<Permission> GET_PERMISSION_ID = Optional.ofNullable(new Permission(4, "get_permission_id", "Permite obtener un registro mediante el ID"));
 	
-	public final static Permission PERMISSION = new Permission(5, "permission_create_new", "Permite editar un registro en el modulo de permisos");
+	public final static Permission PERMISSION_CREATED = new Permission(5, "permission_create_new", "Permite editar un registro en el modulo de permisos");
 	
-	public final static Permission PERMISSION_UPDATED = new Permission(6, "permission_update", "Prueba con editar");
+	public final static Permission PERMISSION_UPDATED = new Permission(6, "permission_update", "Permite editar permisos");
 }

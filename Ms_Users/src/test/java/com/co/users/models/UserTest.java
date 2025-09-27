@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
@@ -39,7 +40,7 @@ public class UserTest {
 				"Running: " + 
 				testInfo.getDisplayName() +
 				" - " +
-				testInfo.getTestMethod().orElse(null) +
+				testInfo.getTestMethod().orElse(null).getName() +
 				" with the Tag: " +
 				testInfo.getTags()
 		);
@@ -50,6 +51,7 @@ public class UserTest {
 	/**************************************************/
 	
 	@Test
+	@DisplayName("Validation of not null in UserTest model")
 	void notNullUserTest() {
 		assertAll(
 			() -> assertNotNull(this.user.getUsername(),
@@ -64,6 +66,7 @@ public class UserTest {
 	/**************************************************/
 	
 	@Test
+	@DisplayName("Validation of maximum length in UserTest model")
 	void validateLengthTest() {
 		int usernameLimit = 20;
 		int passLimit = 20;
