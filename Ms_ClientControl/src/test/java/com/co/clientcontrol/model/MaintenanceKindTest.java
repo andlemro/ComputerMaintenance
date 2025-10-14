@@ -31,8 +31,8 @@ public class MaintenanceKindTest {
 	/**************************************************/
 	
 	@Test
-	@DisplayName("Validation of not null in MaintenanceKindTest model")
-	void notNullMaintenanceKindTest() {
+	@DisplayName("Validation of not null fields in MaintenanceKindTest model")
+	void notNullFieldsTest() {
 		assertAll(
 			() -> assertNotNull(this.maintenanceKind.getIdMaintenanceKind(),
 					() -> "The idMaintenanceKind field cannot be null."),
