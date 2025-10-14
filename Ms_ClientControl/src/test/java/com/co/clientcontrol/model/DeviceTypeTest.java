@@ -31,8 +31,8 @@ public class DeviceTypeTest {
 	/**************************************************/
 	
 	@Test
-	@DisplayName("Validation of not null in DeviceTypeTest model")
-	void notNullDeviceTypeTest() {
+	@DisplayName("Validation of not null fields in DeviceTypeTest model")
+	void notNullFieldsTest() {
 		assertAll(
 			() -> assertNotNull(this.deviceType.getIdDeviceType(),
 					() -> "The idDeviceType field cannot be null."),

@@ -31,8 +31,8 @@ public class TradeMarkTest {
 	/**************************************************/
 	
 	@Test
-	@DisplayName("Validation of not null in TradeMarkTest model")
-	void notNullTradeMarkTest() {
+	@DisplayName("Validation of not null fields in TradeMarkTest model")
+	void notNullFieldsTest() {
 		assertAll(
 			() -> assertNotNull(this.tradeMark.getIdTradeMark(),
 					() -> "The idTradeMark field cannot be null."),
