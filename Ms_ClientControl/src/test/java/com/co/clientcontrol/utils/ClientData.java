@@ -20,5 +20,5 @@ public class ClientData {
 	public final static Client CLIENT_CREATED = new Client(5, "Carla", "Gutierrez", "3432239143", "carla@test.com", "calle 12A # 34 - 82", "Robles");
 	
 	public final static Client CLIENT_UPDATED = new Client(6, "Jhon", "Bente", "3223415621", "jhon@test.com", "carrera 42A # 21 - 58", "Libertadores");
-	
+
 }
