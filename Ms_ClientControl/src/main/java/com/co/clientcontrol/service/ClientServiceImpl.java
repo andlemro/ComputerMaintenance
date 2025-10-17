@@ -12,7 +12,7 @@ import com.co.clientcontrol.model.Client;
 import com.co.clientcontrol.repository.ClientRepository;
 
 @Service
-public class ClientServiceImp implements IClientService {
+public class ClientServiceImpl implements IClientService {
 
 	@Autowired
 	ClientRepository clientRepository;

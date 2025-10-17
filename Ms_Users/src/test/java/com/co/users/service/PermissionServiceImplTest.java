@@ -48,7 +48,7 @@ public class PermissionServiceImplTest {
 	/**************************************************/
 
 	@Test
-	@DisplayName("Validation the permission List Service in PermissionServiceImplTest")
+	@DisplayName("Validation the List Permission Service in PermissionServiceImplTest class")
 	void listPermissionsTest() {
 		when(this.permissionRepository.findAll()).thenReturn(PERMISSIONS_LIST);
 		List<Permission> listPermissions = this.permissionServiceImpl.listPermissions().getBody();
@@ -64,7 +64,7 @@ public class PermissionServiceImplTest {
 	/**************************************************/
 	
 	@Test
-	@DisplayName("Validation the permission Get Service in PermissionServiceImplTest")
+	@DisplayName("Validation the permission Get Service in PermissionServiceImplTest Class")
 	void getPermissionByIdTest() {
 		when(this.permissionRepository.findById(anyInt())).thenReturn(GET_PERMISSION_ID);
 		Permission permissionById = this.permissionServiceImpl.getPermissionById(anyInt()).getBody();
@@ -81,7 +81,7 @@ public class PermissionServiceImplTest {
 	/**************************************************/
 
 	@Test
-	@DisplayName("Validation the permission Create Service in PermissionServiceImplTest")
+	@DisplayName("Validation the permission Create Service in PermissionServiceImplTest Class")
 	void createPermissionTest() {
 		when(this.permissionRepository.save(any(Permission.class))).thenReturn(PERMISSION_CREATED);
 		Permission newPermission = this.permissionServiceImpl.createPermission(PERMISSION_CREATED).getBody();
@@ -98,7 +98,7 @@ public class PermissionServiceImplTest {
 	/**************************************************/
 
 	@Test
-	@DisplayName("Validation the permission Update Service in PermissionServiceImplTest")
+	@DisplayName("Validation the permission Update Service in PermissionServiceImplTest Class")
 	void updatePermissionTest() {
 		when(this.permissionRepository.save(any(Permission.class))).thenReturn(PERMISSION_UPDATED);
 		Permission updatedPermission = this.permissionServiceImpl.updatePermission(PERMISSION_UPDATED).getBody();
