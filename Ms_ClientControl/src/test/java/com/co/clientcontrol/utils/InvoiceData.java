@@ -29,7 +29,7 @@ public class InvoiceData {
 	
 	// --------------------------------------------------------
 	
-	public final static List<Invoice> INVOICE_LIST = List.of(
+	public final static List<Invoice> INVOICES_LIST = List.of(
 		new Invoice(
 			1, 
 			860001942L, 
@@ -67,7 +67,7 @@ public class InvoiceData {
 	
 	// --------------------------------------------------------
 		
-	public final static Optional<Invoice> GET_INVOICE_ID = Optional.ofNullable(new Invoice(
+	public final static Optional<Invoice> GET_INVOICE_NUMBER = Optional.ofNullable(new Invoice(
 		4, 
 		872400123L, 
 		"Mantinimiento Correctivo", 
