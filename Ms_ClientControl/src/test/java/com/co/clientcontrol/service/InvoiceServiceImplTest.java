@@ -52,9 +52,14 @@ public class InvoiceServiceImplTest {
 	@Test
 	@DisplayName("Validation the List Invoices Service in InvoiceServiceImplTest Class")
 	void listInvoicesTest() {
+		
+		// Given
 		when(this.invoiceRepository.findAll()).thenReturn(INVOICES_LIST);
+		
+		// When
 		List<Invoice> listInvoices = this.invoiceServiceImpl.listInvoices().getBody();
 
+		// Then
 		assertAll(
 			() -> assertNotNull(listInvoices, () -> "The listInvoices cannot be null."),
 			() -> assertEquals(3, listInvoices.size(), () -> "The size of listInvoices is not 3.")
@@ -68,10 +73,15 @@ public class InvoiceServiceImplTest {
 	@Test
 	@DisplayName("Validation the Get Invoice Service in InvoiceServiceImplTest Class")
 	void getInvoiceByInvoiceNumberTest() {
-		when(this.invoiceRepository.findByInvoiceNumber(anyLong())).thenReturn(GET_INVOICE_NUMBER);
-		Invoice invoiceById = this.invoiceServiceImpl.getInvoiceByInvoiceNumber(anyLong()).getBody();
-		LocalDateTime dateRegistered = LocalDateTime.parse("10/09/2025 10:00", this.FORMATTER);
 		
+		// Given
+		LocalDateTime dateRegistered = LocalDateTime.parse("10/09/2025 10:00", this.FORMATTER);
+		when(this.invoiceRepository.findByInvoiceNumber(anyLong())).thenReturn(GET_INVOICE_NUMBER);		
+		
+		// When
+		Invoice invoiceById = this.invoiceServiceImpl.getInvoiceByInvoiceNumber(anyLong()).getBody();
+		
+		// Then
 		assertAll(
 			() -> assertNotNull(invoiceById.getIdInvoice(), () -> "The IdInvoice field cannot be null."),
 			() -> assertEquals(4, invoiceById.getIdInvoice(), () -> "The Invoice field is " + invoiceById.getIdInvoice() + " should be 4"),
@@ -91,10 +101,15 @@ public class InvoiceServiceImplTest {
 	@Test
 	@DisplayName("Validation the Create Invoice Service in InvoiceServiceImplTest Class")
 	void createInvoiceTest() {
-		when(this.invoiceRepository.save(any(Invoice.class))).thenReturn(INVOICE_CREATED);
-		Invoice newInvoice = this.invoiceServiceImpl.createInvoice(INVOICE_CREATED).getBody();
-		LocalDateTime dateRegistered = LocalDateTime.parse("19/10/2025 15:30", this.FORMATTER);
 		
+		// Given
+		LocalDateTime dateRegistered = LocalDateTime.parse("19/10/2025 15:30", this.FORMATTER);
+		when(this.invoiceRepository.save(any(Invoice.class))).thenReturn(INVOICE_CREATED);
+		
+		// When
+		Invoice newInvoice = this.invoiceServiceImpl.createInvoice(INVOICE_CREATED).getBody();
+		
+		// Then
 		assertAll(
 			() -> assertNotNull(newInvoice.getIdInvoice(), () -> "The IdInvoice field cannot be null."),
 			() -> assertEquals(5, newInvoice.getIdInvoice(), () -> "The IdInvoice field is " + newInvoice.getIdInvoice() + " should be 5"),
@@ -114,10 +129,15 @@ public class InvoiceServiceImplTest {
 	@Test
 	@DisplayName("Validation the Update Invoice Service in InvoiceServiceImplTest Class")
 	void updateInvoiceTest() {
-		when(this.invoiceRepository.save(any(Invoice.class))).thenReturn(INVOICE_UPDATED);
-		Invoice newInvoice = this.invoiceServiceImpl.createInvoice(INVOICE_UPDATED).getBody();
-		LocalDateTime dateRegistered = LocalDateTime.parse("27/09/2025 11:49", this.FORMATTER);
 		
+		// Given
+		LocalDateTime dateRegistered = LocalDateTime.parse("27/09/2025 11:49", this.FORMATTER);
+		when(this.invoiceRepository.save(any(Invoice.class))).thenReturn(INVOICE_UPDATED);
+		
+		// When
+		Invoice newInvoice = this.invoiceServiceImpl.createInvoice(INVOICE_UPDATED).getBody();
+		
+		// Then
 		assertAll(
 			() -> assertNotNull(newInvoice.getIdInvoice(), () -> "The IdInvoice field cannot be null."),
 			() -> assertEquals(6, newInvoice.getIdInvoice(), () -> "The IdInvoice field is " + newInvoice.getIdInvoice() + " should be 6"),

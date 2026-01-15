@@ -51,9 +51,14 @@ public class DeviceServiceImplTest {
 	@Test
 	@DisplayName("Validation the List Devices Service in DeviceServiceImplTest Class")
 	void listDevicesTest() {
+		
+		// Given
 		when(this.deviceRepository.findAll()).thenReturn(DEVICES_LIST);
+		
+		// When
 		List<Device> listInvoices = this.deviceServiceImpl.listDevices().getBody();
 
+		// Then
 		assertAll(
 			() -> assertNotNull(listInvoices, () -> "The listInvoices cannot be null."),
 			() -> assertEquals(3, listInvoices.size(), () -> "The size of listInvoices is not 3.")
@@ -67,10 +72,15 @@ public class DeviceServiceImplTest {
 	@Test
 	@DisplayName("Validation the Get Device Service in DeviceServiceImplTest Class")
 	void getDeviceByIdTest() {
-		when(this.deviceRepository.findById(anyInt())).thenReturn(GET_DEVICE_ID);
-		Device deviceById = this.deviceServiceImpl.getDeviceById(anyInt()).getBody();
-		LocalDateTime dateRegistered = LocalDateTime.parse("05/11/2025 16:30", this.FORMATTER);
 		
+		// Given
+		LocalDateTime dateRegistered = LocalDateTime.parse("05/11/2025 16:30", this.FORMATTER);
+		when(this.deviceRepository.findById(anyInt())).thenReturn(GET_DEVICE_ID);
+		
+		// When
+		Device deviceById = this.deviceServiceImpl.getDeviceById(anyInt()).getBody();
+		
+		// Then
 		assertAll(
 			() -> assertNotNull(deviceById.getIdDevice(), () -> "The IdDevice field cannot be null."),
 			() -> assertEquals(4, deviceById.getIdDevice(), () -> "The IdDevice field is " + deviceById.getIdDevice() + " should be 4"),
@@ -96,10 +106,15 @@ public class DeviceServiceImplTest {
 	@Test
 	@DisplayName("Validation the create Device Service in DeviceServiceImplTest Class")
 	void createDeviceTest() {
-		when(this.deviceRepository.save(any(Device.class))).thenReturn(DEVICE_CREATED);
-		Device newDevice = this.deviceServiceImpl.createDevice(DEVICE_CREATED).getBody();
-		LocalDateTime dateRegistered = LocalDateTime.parse("09/11/2025 18:20", this.FORMATTER);
 		
+		// Given
+		LocalDateTime dateRegistered = LocalDateTime.parse("09/11/2025 18:20", this.FORMATTER);
+		when(this.deviceRepository.save(any(Device.class))).thenReturn(DEVICE_CREATED);
+		
+		// When
+		Device newDevice = this.deviceServiceImpl.createDevice(DEVICE_CREATED).getBody();
+		
+		// Then
 		assertAll(
 			() -> assertNotNull(newDevice.getIdDevice(), () -> "The IdDevice field cannot be null."),
 			() -> assertEquals(5, newDevice.getIdDevice(), () -> "The IdDevice field is " + newDevice.getIdDevice() + " should be 5"),
@@ -125,10 +140,15 @@ public class DeviceServiceImplTest {
 	@Test
 	@DisplayName("Validation the update Device Service in DeviceServiceImplTest Class")
 	void updateDeviceTest() {
-		when(this.deviceRepository.save(any(Device.class))).thenReturn(DEVICE_UPDATED);
-		Device newDevice = this.deviceServiceImpl.createDevice(DEVICE_UPDATED).getBody();
-		LocalDateTime dateRegistered = LocalDateTime.parse("14/11/2025 07:40", this.FORMATTER);
 		
+		// Given
+		LocalDateTime dateRegistered = LocalDateTime.parse("14/11/2025 07:40", this.FORMATTER);
+		when(this.deviceRepository.save(any(Device.class))).thenReturn(DEVICE_UPDATED);
+		
+		// When
+		Device newDevice = this.deviceServiceImpl.createDevice(DEVICE_UPDATED).getBody();
+		
+		// Then
 		assertAll(
 			() -> assertNotNull(newDevice.getIdDevice(), () -> "The IdDevice field cannot be null."),
 			() -> assertEquals(6, newDevice.getIdDevice(), () -> "The IdDevice field is " + newDevice.getIdDevice() + " should be 6"),

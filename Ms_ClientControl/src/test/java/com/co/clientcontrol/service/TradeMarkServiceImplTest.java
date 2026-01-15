@@ -45,9 +45,14 @@ public class TradeMarkServiceImplTest {
 	@Test
 	@DisplayName("Validation the List TradeMarks Service in TradeMarkServiceImplTest Class")
 	void listTradeMarksTest() {
+		
+		// Given
 		when(this.tradeMarkRepository.findAll()).thenReturn(TRADE_MARK_LIST);
+		
+		// When
 		List<TradeMark> listTradeMarks = this.tradeMarkServiceImpl.listTradeMarks().getBody();
 
+		// Then
 		assertAll(
 			() -> assertNotNull(listTradeMarks, () -> "The listTradeMarks cannot be null."),
 			() -> assertEquals(3, listTradeMarks.size(), () -> "The size of listTradeMarks is not 3.")
@@ -61,9 +66,14 @@ public class TradeMarkServiceImplTest {
 	@Test
 	@DisplayName("Validation the Get TradeMark Service in TradeMarkServiceImplTest Class")
 	void getTradeMarkByIdTest() {
+		
+		// Given
 		when(this.tradeMarkRepository.findById(anyInt())).thenReturn(GET_TRADE_MARK_ID);
+		
+		// When
 		TradeMark tradeMarkById = this.tradeMarkServiceImpl.getTradeMarkById(anyInt()).getBody();
 		
+		// Then
 		assertAll(
 			() -> assertNotNull(tradeMarkById.getIdTradeMark(), () -> "The IdTradeMark field cannot be null."),
 			() -> assertEquals(4, tradeMarkById.getIdTradeMark(), () -> "The IdTradeMark field is " + tradeMarkById.getIdTradeMark() + " should be 4"),
@@ -78,9 +88,14 @@ public class TradeMarkServiceImplTest {
 	@Test
 	@DisplayName("Validation the Create TradeMark Service in TradeMarkServiceImplTest Class")
 	void createTradeMarkTest() {
+		
+		// Given
 		when(this.tradeMarkRepository.save(any(TradeMark.class))).thenReturn(TRADE_MARK_CREATED);
+		
+		// When
 		TradeMark newTradeMark = this.tradeMarkServiceImpl.createTradeMark(TRADE_MARK_CREATED).getBody();
 		
+		// Then
 		assertAll(
 			() -> assertNotNull(newTradeMark.getIdTradeMark(), () -> "The IdTradeMark field cannot be null."),
 			() -> assertEquals(5, newTradeMark.getIdTradeMark(), () -> "The IdTradeMark field is " + newTradeMark.getIdTradeMark() + " should be 5"),
@@ -95,9 +110,14 @@ public class TradeMarkServiceImplTest {
 	@Test
 	@DisplayName("Validation the Update TradeMark Service in TradeMarkServiceImplTest Class")
 	void updateTradeMarkTest() {
+		
+		// Given
 		when(this.tradeMarkRepository.save(any(TradeMark.class))).thenReturn(TRADE_MARK_UPDATED);
+		
+		// When
 		TradeMark updatedTradeMark = this.tradeMarkServiceImpl.updateTradeMark(TRADE_MARK_UPDATED).getBody();
 		
+		// Then
 		assertAll(
 			() -> assertNotNull(updatedTradeMark.getIdTradeMark(), () -> "The IdClient field cannot be null."),
 			() -> assertEquals(6, updatedTradeMark.getIdTradeMark(), () -> "The IdClient field is " + updatedTradeMark.getIdTradeMark() + " should be 6"),
@@ -108,5 +128,4 @@ public class TradeMarkServiceImplTest {
 	}
 	
 	/**************************************************/
-
 }

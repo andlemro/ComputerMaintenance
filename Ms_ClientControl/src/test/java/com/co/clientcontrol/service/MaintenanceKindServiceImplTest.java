@@ -45,9 +45,14 @@ public class MaintenanceKindServiceImplTest {
 	@Test
 	@DisplayName("Validation the List MaintenanceKind Service in MaintenanceKindServiceImplTest Class")
 	void listMaintenanceKindTest() {
+		
+		// Given
 		when(this.maintenanceKindRepository.findAll()).thenReturn(MAINTENANCE_KIND_LIST);
+		
+		// When
 		List<MaintenanceKind> listMaintenanceKind = this.maintenanceKindServiceImpl.listMaintenanceKinds().getBody();
 
+		// Then
 		assertAll(
 			() -> assertNotNull(listMaintenanceKind, () -> "The listMaintenanceKind cannot be null."),
 			() -> assertEquals(2, listMaintenanceKind.size(), () -> "The size of listMaintenanceKind is not 3.")
@@ -61,9 +66,14 @@ public class MaintenanceKindServiceImplTest {
 	@Test
 	@DisplayName("Validation the Get MaintenanceKind Service in MaintenanceKindServiceImplTest Class")
 	void getMaintenanceKindByIdTest() {
+		
+		// Given
 		when(this.maintenanceKindRepository.findById(anyInt())).thenReturn(GET_MAINTENANCE_KIND_ID);
+		
+		// When
 		MaintenanceKind maintenanceKindById = this.maintenanceKindServiceImpl.getMaintenanceKindById(anyInt()).getBody();
 		
+		// Then
 		assertAll(
 			() -> assertNotNull(maintenanceKindById.getIdMaintenanceKind(), () -> "The IdMaintenanceKind field cannot be null."),
 			() -> assertEquals(4, maintenanceKindById.getIdMaintenanceKind(), () -> "The IdMaintenanceKind field is " + maintenanceKindById.getIdMaintenanceKind() + " should be 4"),
@@ -78,9 +88,14 @@ public class MaintenanceKindServiceImplTest {
 	@Test
 	@DisplayName("Validation the Create MaintenanceKind Service in MaintenanceKindServiceImplTest Class")
 	void createMaintenanceKindTest() {
+		
+		// Given
 		when(this.maintenanceKindRepository.save(any(MaintenanceKind.class))).thenReturn(MAINTENANCE_KIND_CREATED);
+		
+		// When
 		MaintenanceKind newMaintenanceKind = this.maintenanceKindServiceImpl.createMaintenanceKind(MAINTENANCE_KIND_CREATED).getBody();
 		
+		// Then
 		assertAll(
 			() -> assertNotNull(newMaintenanceKind.getIdMaintenanceKind(), () -> "The IdMaintenanceKind field cannot be null."),
 			() -> assertEquals(5, newMaintenanceKind.getIdMaintenanceKind(), () -> "The IdMaintenanceKind field is " + newMaintenanceKind.getIdMaintenanceKind() + " should be 5"),
@@ -95,9 +110,14 @@ public class MaintenanceKindServiceImplTest {
 	@Test
 	@DisplayName("Validation the Update MaintenanceKind Service in MaintenanceKindServiceImplTest Class")
 	void updateMaintenanceKindTest() {
+		
+		// Given
 		when(this.maintenanceKindRepository.save(any(MaintenanceKind.class))).thenReturn(MAINTENANCE_KIND_UPDATED);
+		
+		// When
 		MaintenanceKind updatedMaintenanceKind = this.maintenanceKindServiceImpl.updateMaintenanceKind(MAINTENANCE_KIND_UPDATED).getBody();
 		
+		// Then
 		assertAll(
 			() -> assertNotNull(updatedMaintenanceKind.getIdMaintenanceKind(), () -> "The IdClient field cannot be null."),
 			() -> assertEquals(6, updatedMaintenanceKind.getIdMaintenanceKind(), () -> "The IdClient field is " + updatedMaintenanceKind.getIdMaintenanceKind() + " should be 6"),
@@ -108,6 +128,4 @@ public class MaintenanceKindServiceImplTest {
 	}
 	
 	/**************************************************/
-	
-	
 }

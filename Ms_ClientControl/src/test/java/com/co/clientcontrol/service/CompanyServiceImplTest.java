@@ -46,9 +46,14 @@ public class CompanyServiceImplTest {
 	@Test
 	@DisplayName("Validation the List Companies Service in CompanyServiceImplTest Class")
 	void listCompaniesTest() {
+		
+		// Given
 		when(this.companyRepository.findAll()).thenReturn(COMPANY_LIST);
+		
+		// When
 		List<Company> listCompanies = this.companyServiceImpl.listCompanies().getBody();
 
+		// Then
 		assertAll(
 			() -> assertNotNull(listCompanies, () -> "The listCompaniesTest cannot be null."),
 			() -> assertEquals(3, listCompanies.size(), () -> "The size of listCompaniesTest is not 3.")
@@ -62,9 +67,14 @@ public class CompanyServiceImplTest {
 	@Test
 	@DisplayName("Validation the Get Company Service in CompanyServiceImplTest Class")
 	void getCompanyByIdTest() {
+		
+		// Given
 		when(this.companyRepository.findById(anyInt())).thenReturn(GET_COMPANY_ID);
+		
+		// When
 		Company companyById = this.companyServiceImpl.getCompanyById(anyInt()).getBody();
 		
+		// Then
 		assertAll(
 			() -> assertNotNull(companyById.getIdCompany(), () -> "The IdCompany field cannot be null."),
 			() -> assertEquals(5, companyById.getIdCompany(), () -> "The IdCompany field is " + companyById.getIdCompany() + " should be 5"),
@@ -82,9 +92,14 @@ public class CompanyServiceImplTest {
 	@Test
 	@DisplayName("Validation the Create Company Service in CompanyServiceImplTest Class")
 	void createCompanyTest() {
+		
+		// Given
 		when(this.companyRepository.save(any(Company.class))).thenReturn(COMPANY_CREATED);
+		
+		// When
 		Company newCompany = this.companyServiceImpl.createCompany(COMPANY_CREATED).getBody();
 		
+		// Then
 		assertAll(
 			() -> assertNotNull(newCompany.getIdCompany(), () -> "The IdCompany field cannot be null."),
 			() -> assertEquals(6, newCompany.getIdCompany(), () -> "The IdCompany field is " + newCompany.getIdCompany() + " should be 6"),
@@ -102,9 +117,14 @@ public class CompanyServiceImplTest {
 	@Test
 	@DisplayName("Validation the Update Company Service in CompanyServiceImplTest Class")
 	void updateCompanyTest() {
+		
+		// Given
 		when(this.companyRepository.save(any(Company.class))).thenReturn(COMPANY_UPDATED);
+		
+		// When
 		Company newCompany = this.companyServiceImpl.createCompany(COMPANY_UPDATED).getBody();
 		
+		// Then
 		assertAll(
 			() -> assertNotNull(newCompany.getIdCompany(), () -> "The IdCompany field cannot be null."),
 			() -> assertEquals(7, newCompany.getIdCompany(), () -> "The IdCompany field is " + newCompany.getIdCompany() + " should be 7"),

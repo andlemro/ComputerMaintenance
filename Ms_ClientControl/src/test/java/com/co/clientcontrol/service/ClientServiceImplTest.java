@@ -45,9 +45,14 @@ public class ClientServiceImplTest {
 	@Test
 	@DisplayName("Validation the List Client Service in ClientServiceImplTest Class")
 	void listClientsTest() {
+		
+		// Given
 		when(this.clientRepository.findAll()).thenReturn(CLIENT_LIST);
+		
+		// When
 		List<Client> listClients = this.clientServiceImpl.listClients().getBody();
 
+		// Then
 		assertAll(
 			() -> assertNotNull(listClients, () -> "The listClients cannot be null."),
 			() -> assertEquals(3, listClients.size(), () -> "The size of listClients is not 3.")
@@ -61,9 +66,14 @@ public class ClientServiceImplTest {
 	@Test
 	@DisplayName("Validation the Get Client Service in ClientServiceImplTest Class")
 	void getClientByIdTest() {
+		
+		// Given
 		when(this.clientRepository.findById(anyInt())).thenReturn(GET_CLIENT_ID);
+		
+		// When
 		Client clientById = this.clientServiceImpl.getClientById(anyInt()).getBody();
 		
+		// Then
 		assertAll(
 			() -> assertNotNull(clientById.getIdClient(), () -> "The IdClient field cannot be null."),
 			() -> assertEquals(4, clientById.getIdClient(), () -> "The IdClient field is " + clientById.getIdClient() + " should be 4"),
@@ -83,9 +93,14 @@ public class ClientServiceImplTest {
 	@Test
 	@DisplayName("Validation the Create Client Service in ClientServiceImplTest Class")
 	void createClientTest() {
+		
+		// Given
 		when(this.clientRepository.save(any(Client.class))).thenReturn(CLIENT_CREATED);
+		
+		// When
 		Client newClient = this.clientServiceImpl.createClient(CLIENT_CREATED).getBody();
 		
+		// Then
 		assertAll(
 			() -> assertNotNull(newClient.getIdClient(), () -> "The IdClient field cannot be null."),
 			() -> assertEquals(5, newClient.getIdClient(), () -> "The IdClient field is " + newClient.getIdClient() + " should be 5"),
@@ -105,9 +120,14 @@ public class ClientServiceImplTest {
 	@Test
 	@DisplayName("Validation the Update Client Service in ClientServiceImplTest Class")
 	void updateClientTest() {
+		
+		// Given
 		when(this.clientRepository.save(any(Client.class))).thenReturn(CLIENT_UPDATED);
+		
+		// When
 		Client updatedClient = this.clientServiceImpl.updateClient(CLIENT_UPDATED).getBody();
 		
+		// Then
 		assertAll(
 			() -> assertNotNull(updatedClient.getIdClient(), () -> "The IdClient field cannot be null."),
 			() -> assertEquals(6, updatedClient.getIdClient(), () -> "The IdClient field is " + updatedClient.getIdClient() + " should be 6"),

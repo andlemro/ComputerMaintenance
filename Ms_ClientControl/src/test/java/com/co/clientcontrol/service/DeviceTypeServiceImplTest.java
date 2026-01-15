@@ -45,9 +45,14 @@ public class DeviceTypeServiceImplTest {
 	@Test
 	@DisplayName("Validation the List DevicesTypes Service in DeviceTypeServiceImplTest Class")
 	void listDevicesTypesTest() {
+		
+		// Given
 		when(this.deviceTypeRepository.findAll()).thenReturn(DEVICE_TYPE_LIST);
+		
+		// When
 		List<DeviceType> listDevicesTypes = this.deviceTypeServiceImpl.listDevicesTypes().getBody();
 
+		// Then
 		assertAll(
 			() -> assertNotNull(listDevicesTypes, () -> "The listDevicesTypes cannot be null."),
 			() -> assertEquals(2, listDevicesTypes.size(), () -> "The size of listDevicesTypes is not 3.")
@@ -61,9 +66,14 @@ public class DeviceTypeServiceImplTest {
 	@Test
 	@DisplayName("Validation the Get DeviceType Service in DeviceTypeServiceImplTest Class")
 	void getDeviceTypeByIdTest() {
+		
+		// Given
 		when(this.deviceTypeRepository.findById(anyInt())).thenReturn(GET_DEVICE_TYPE_ID);
+		
+		// When
 		DeviceType deviceTypeById = this.deviceTypeServiceImpl.getDeviceTypeById(anyInt()).getBody();
 		
+		// Then
 		assertAll(
 			() -> assertNotNull(deviceTypeById.getIdDeviceType(), () -> "The IdDeviceType field cannot be null."),
 			() -> assertEquals(4, deviceTypeById.getIdDeviceType(), () -> "The IdDeviceType field is " + deviceTypeById.getIdDeviceType() + " should be 4"),
@@ -78,9 +88,14 @@ public class DeviceTypeServiceImplTest {
 	@Test
 	@DisplayName("Validation the Create DeviceType Service in DeviceTypeServiceImplTest Class")
 	void createDeviceTypeTest() {
+		
+		// Given
 		when(this.deviceTypeRepository.save(any(DeviceType.class))).thenReturn(DEVICE_TYPE_CREATED);
+		
+		// When
 		DeviceType newDeviceType = this.deviceTypeServiceImpl.createDeviceType(DEVICE_TYPE_CREATED).getBody();
 		
+		// Then
 		assertAll(
 			() -> assertNotNull(newDeviceType.getIdDeviceType(), () -> "The IdDeviceType field cannot be null."),
 			() -> assertEquals(5, newDeviceType.getIdDeviceType(), () -> "The IdDeviceType field is " + newDeviceType.getIdDeviceType() + " should be 5"),
@@ -95,9 +110,14 @@ public class DeviceTypeServiceImplTest {
 	@Test
 	@DisplayName("Validation the Update DeviceType Service in DeviceTypeServiceImplTest Class")
 	void updateDeviceTypeTest() {
+		
+		// Given
 		when(this.deviceTypeRepository.save(any(DeviceType.class))).thenReturn(DEVICE_TYPE_UPDATED);
+		
+		// When
 		DeviceType updatedDeviceType = this.deviceTypeServiceImpl.uptadeDeviceType(DEVICE_TYPE_UPDATED).getBody();
 		
+		// Then
 		assertAll(
 			() -> assertNotNull(updatedDeviceType.getIdDeviceType(), () -> "The IdClient field cannot be null."),
 			() -> assertEquals(6, updatedDeviceType.getIdDeviceType(), () -> "The IdClient field is " + updatedDeviceType.getIdDeviceType() + " should be 6"),
