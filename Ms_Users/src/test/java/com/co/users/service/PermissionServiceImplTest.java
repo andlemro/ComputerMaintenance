@@ -50,9 +50,14 @@ public class PermissionServiceImplTest {
 	@Test
 	@DisplayName("Validation the List Permission Service in PermissionServiceImplTest class")
 	void listPermissionsTest() {
+		
+		// Given
 		when(this.permissionRepository.findAll()).thenReturn(PERMISSIONS_LIST);
+		
+		// When
 		List<Permission> listPermissions = this.permissionServiceImpl.listPermissions().getBody();
 
+		// Then
 		assertAll(
 			() -> assertNotNull(listPermissions, () -> "The listPermissions cannot be null."),
 			() -> assertEquals(3, listPermissions.size(), () -> "The size of listPermissions is not 3.")
@@ -66,9 +71,14 @@ public class PermissionServiceImplTest {
 	@Test
 	@DisplayName("Validation the permission Get Service in PermissionServiceImplTest Class")
 	void getPermissionByIdTest() {
+		
+		// Given
 		when(this.permissionRepository.findById(anyInt())).thenReturn(GET_PERMISSION_ID);
+		
+		// When
 		Permission permissionById = this.permissionServiceImpl.getPermissionById(anyInt()).getBody();
 		
+		// Then
 		assertAll(
 			() -> assertNotNull(permissionById.getIdPermission(), () -> "The IdPermission field cannot be null."),
 			() -> assertEquals(4, permissionById.getIdPermission(), () -> "The IdPermission field is not 4."),
@@ -83,9 +93,14 @@ public class PermissionServiceImplTest {
 	@Test
 	@DisplayName("Validation the permission Create Service in PermissionServiceImplTest Class")
 	void createPermissionTest() {
+		
+		// Given
 		when(this.permissionRepository.save(any(Permission.class))).thenReturn(PERMISSION_CREATED);
+		
+		// When
 		Permission newPermission = this.permissionServiceImpl.createPermission(PERMISSION_CREATED).getBody();
 		
+		// Then
 		assertAll(
 			() -> assertNotNull(newPermission.getIdPermission(), () -> "The IdPermission field cannot be null."),
 			() -> assertEquals(5, newPermission.getIdPermission(), () -> "The IdPermission field is not 5."),
@@ -100,9 +115,14 @@ public class PermissionServiceImplTest {
 	@Test
 	@DisplayName("Validation the permission Update Service in PermissionServiceImplTest Class")
 	void updatePermissionTest() {
+		
+		// Given
 		when(this.permissionRepository.save(any(Permission.class))).thenReturn(PERMISSION_UPDATED);
+		
+		// When
 		Permission updatedPermission = this.permissionServiceImpl.updatePermission(PERMISSION_UPDATED).getBody();
 		
+		// Then
 		assertAll(
 			() -> assertNotNull(updatedPermission.getIdPermission(), () -> "The IdPermission field cannot be null."),
 			() -> assertEquals(6, updatedPermission.getIdPermission(), () -> "The IdPermission field is not 6."),

@@ -50,9 +50,14 @@ public class UserServiceImplTest {
 	@Test
 	@DisplayName("Validation the User List Service in UserServiceImplTest")
 	void listUsersTest() {
+		
+		// Given
 		when(this.userRepository.findAll()).thenReturn(USERS_LIST);
+		
+		// When
 		List<User> listUsers = this.userServiceImpl.listUsers().getBody();
-
+		
+		// Then
 		assertAll(
 			() -> assertNotNull(listUsers, () -> "The listUsers cannot be null."),
 			() -> assertEquals(2, listUsers.size(), () -> "The size of listUsers is not 2.")
@@ -66,9 +71,14 @@ public class UserServiceImplTest {
 	@Test
 	@DisplayName("Validation the User Get Service in UserServiceImplTest")
 	void getUserByIdTest() {
+		
+		// Given
 		when(this.userRepository.findById(anyInt())).thenReturn(GET_USER_ID);
+		
+		// When
 		User userById = this.userServiceImpl.getUserById(anyInt()).getBody();
 		
+		// Then
 		assertAll(
 			() -> assertNotNull(userById.getIdUser(), () -> "The IdUser field cannot be null."),
 			() -> assertNotNull(userById.getRoles(), () -> "The Roles field cannot be null."),
@@ -86,9 +96,14 @@ public class UserServiceImplTest {
 	@Test
 	@DisplayName("Validation the User Create Service in UserServiceImplTest")
 	void createUserTest() {
+		
+		// Given
 		when(this.userRepository.save(any(User.class))).thenReturn(USER_CREATED);
+		
+		// When
 		User newUser = this.userServiceImpl.createUser(USER_CREATED).getBody();
 		
+		// Then
 		assertAll(
 			() -> assertNotNull(newUser.getIdUser(), () -> "The IdUser field cannot be null."),
 			() -> assertNotNull(newUser.getRoles(), () -> "The Roles field cannot be null."),
@@ -106,9 +121,14 @@ public class UserServiceImplTest {
 	@Test
 	@DisplayName("Validation the User Update Service in UserServiceImplTest")
 	void updateUserTest() {
+		
+		// Given
 		when(this.userRepository.save(any(User.class))).thenReturn(USER_UPDATED);
+		
+		// When
 		User updatedUser = this.userServiceImpl.updateUser(USER_UPDATED).getBody();
 		
+		// Then
 		assertAll(
 			() -> assertNotNull(updatedUser.getIdUser(), () -> "The IdRol IdUser cannot be null."),
 			() -> assertNotNull(updatedUser.getRoles(), () -> "The Roles field cannot be null."),

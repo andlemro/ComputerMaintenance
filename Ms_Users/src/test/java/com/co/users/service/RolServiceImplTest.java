@@ -50,9 +50,14 @@ public class RolServiceImplTest {
 	@Test
 	@DisplayName("Validation the Rol List Service in RolServiceImplTest")
 	void listRolesTest() {
+		
+		// Given
 		when(this.rolRepository.findAll()).thenReturn(ROLES_LIST);
+		
+		// When
 		List<Rol> listRoles = this.rolServiceImpl.listRoles().getBody();
 
+		// Then
 		assertAll(
 			() -> assertNotNull(listRoles, () -> "The listRoles cannot be null."),
 			() -> assertEquals(2, listRoles.size(), () -> "The size of listRoles is not 2.")
@@ -66,9 +71,14 @@ public class RolServiceImplTest {
 	@Test
 	@DisplayName("Validation the Rol Get Service in RolServiceImplTest")
 	void getRolByIdTest() {
+		
+		// Given
 		when(this.rolRepository.findById(anyInt())).thenReturn(GET_ROL_ID);
+		
+		// When
 		Rol rolById = this.rolServiceImpl.getRolById(anyInt()).getBody();
 		
+		// Then
 		assertAll(
 			() -> assertNotNull(rolById.getIdRol(), () -> "The IdRol field cannot be null."),
 			() -> assertNotNull(rolById.getPermissions(), () -> "The Permissions field cannot be null."),
@@ -85,9 +95,14 @@ public class RolServiceImplTest {
 	@Test
 	@DisplayName("Validation the Rol Create Service in RolServiceImplTest")
 	void createRolTest() {
+		
+		// Given
 		when(this.rolRepository.save(any(Rol.class))).thenReturn(ROL_CREATED);
+		
+		// When
 		Rol newRol = this.rolServiceImpl.createRol(ROL_CREATED).getBody();
 		
+		// Then
 		assertAll(
 			() -> assertNotNull(newRol.getIdRol(), () -> "The IdRol field cannot be null."),
 			() -> assertNotNull(newRol.getPermissions(), () -> "The Permissions field cannot be null."),
@@ -104,9 +119,14 @@ public class RolServiceImplTest {
 	@Test
 	@DisplayName("Validation the Rol Update Service in RolServiceImplTest")
 	void updateRolTest() {
+		
+		// Given
 		when(this.rolRepository.save(any(Rol.class))).thenReturn(ROL_UPDATED);
+		
+		// When
 		Rol updatedRol = this.rolServiceImpl.updateRol(ROL_UPDATED).getBody();
 		
+		// Then
 		assertAll(
 			() -> assertNotNull(updatedRol.getIdRol(), () -> "The IdRol field cannot be null."),
 			() -> assertNotNull(updatedRol.getPermissions(), () -> "The Permissions field cannot be null."),
